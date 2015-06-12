@@ -1,2 +1,31 @@
-<h1>Users#new</h1>
+<%= form_for @user do |f| %>
+	<div>
+		First name:
+		<%= f.text_field :fname %>
+	</div>
+	<div>
+		Last name:
+		<%= f.text_field :lname %>
+	</div>
+	<div>
+		<%= f.label :picture %>
+		<%= f.file_field :picture%>
+	</div>
+	<div>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	<div>
+
+	<div>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+
+	<div>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+		<%= f.submit "Add new user!" %>
+<% end %>
+<%= link_to "Back to the list!", users_path %><h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
