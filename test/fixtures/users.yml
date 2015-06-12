@@ -1,19 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  index: MyString
-  show: MyString
-  new: MyString
-  create: MyString
-  edit: MyString
-  update: MyString
-  destroy: MyString
+  fname: MyString
+  lname: MyString
+  picture: MyString
+  email: MyString
+  password_digest: MyString
+  provider: false
+  phonenumber: 
+  street_address: MyString
+  city: MyString
+  zipcode: 
+  state: MyString
+  bio: MyText
 
 two:
-  index: MyString
-  show: MyString
-  new: MyString
-  create: MyString
-  edit: MyString
-  update: MyString
-  destroy: MyString
+  fname: MyString
+  lname: MyString
+  picture: MyString
+  email: MyString
+  password_digest: MyString
+  provider: false
+  phonenumber: 
+  street_address: MyString
+  city: MyString
+  zipcode: 
+  state: MyString
+  bio: MyText
