@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   root 'statics#home'
 
   resources :users
