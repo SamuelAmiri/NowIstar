@@ -35,6 +35,11 @@ gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#Use OmniAuth for authentication of LinkedIn
+gem 'omniauth'	
+gem 'omniauth-linkedin'
+gem 'omniauth-linkedin-oauth2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
