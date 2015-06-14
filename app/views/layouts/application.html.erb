@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <% if session['auth'] %>
+        <li><a href="/sessions/show">Profile</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+        <% else %>
+        <li><a href="/auth/facebook">Login via Facebook</a></li>
+        <% end %>
+    </ul>
+</nav>
 <script>
   window.fbAsyncInit = function() {
     FB.init({

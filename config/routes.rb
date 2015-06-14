@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/show'
 
   get 'sessions/create'
 
   get 'sessions/destroy'
 
+  get "/auth/:provider/callback" => "sessions#create" 
+
+  get 'sessions/show'
+  
+  get 'auth/logout' => 'sessions#destroy'
   root 'statics#home'
 
   resources :users
