@@ -1,21 +1,21 @@
 class SessionsController < ApplicationController
 	def new
+
+  	end
+
+	def show
+	    redirect_to root_path unless session['auth']
+	    @auth = session['auth']
 	end
 
-	## CREATES A SESSION AND SESSION USER ID IS EQUAL TO THE AUTHENTICATED USER'S ID.
 	def create
-		@user = User.find_by(username: params[:session][:username])
-			if @user && @user.authenticate(params[:session][:password])
-				session[:user_id] = @user.id.to_s
-				redirect_to root_path
-
-			else 
-				render :new
-			end
+	    @auth = request.env['omniauth.auth']
+	    session['auth'] = @auth
+	    redirect_to sessions_show_path
 	end
 
 	def destroy
-		session.delete(:user_id)
-		redirect_to root_path
+	    session['auth'] = nil
+	    redirect_to root_path
 	end
 end

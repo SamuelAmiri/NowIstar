@@ -1,1 +1,5 @@
-Hello world.
+<% @users.each do |user| %>
+	<%= user.fname %> <%= user.lname %><br>
+	<%= user.created_at.strftime ("%b %d, %Y")  %><br>
+	<%= link_to "More info", user_path(user) %><br><br>
+<% end %>

@@ -31,6 +31,8 @@ gem 'paperclip'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'pg'
+
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
