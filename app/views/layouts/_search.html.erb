@@ -1,0 +1,6 @@
+<!-- Partial with simple search  -->
+<%= form_tag new_search_path, method: :get do |f| %>
+	<%= text_field_tag :search, nil, placeholder: 'What are you looking for?' %>
+	<%= text_field_tag :search, nil, placeholder: 
+	<%= submit_tag "Search" %>
+<% end %>
