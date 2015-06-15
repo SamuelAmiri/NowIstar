@@ -1,6 +1,14 @@
 <!-- Partial with simple search  -->
+<div class="searchbar">
 <%= form_tag new_search_path, method: :get do |f| %>
-	<%= text_field_tag :search, nil, placeholder: 'What are you looking for?',class: 'input-large' %>
-	<%= text_field_tag :search, nil, placeholder: 'Where?',class: 'input-large' %>
-	<%= submit_tag "Search" %>
+	<div class ="col-md-6">
+	<%= text_field_tag :search, nil, placeholder: 'What are you looking for?',class: 'form-control' %>
+	</div>
+	<div class ="col-md-3">
+		<%= text_field_tag :search, nil, placeholder: 'Where?',class: 'form-control' %>
+	</div>
+	<div class ="col-md-2">
+	<%= submit_tag "Search",class: 'form-control btn-warning' %>
+	</div>
+</div>
 <% end %>
