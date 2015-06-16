@@ -6,21 +6,19 @@
             </a>
     		<ul class="dropdown-menu multi-level col-md-6" role="menu" aria-labelledby="dropdownMenu">
     		<% @categories.each do |category| %>
-              <li><a tabindex="-1" href="#"><li><%= category.name %></a></li>
-            <% end %>
-              <li><a href="#">Some other action</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-submenu col-md-6">
-                <a tabindex="-1" href="#">Hover me for more options</a>
-                <ul class="dropdown-menu col-md-6">
+              <li class="dropdown-submenu">
+              <a tabindex="-1" href="#"><%= category.name %></a>
+             <ul class="dropdown-menu">
                   <li><a tabindex="-1" href="#">Second level</a></li>
-                  <li class="dropdown-submenu col-md-6">
+                  <li class="dropdown-submenu">
                   </li>
                   <li><a href="#">Second level</a></li>
                   <li><a href="#">Second level</a></li>
                 </ul>
-              </li>
-            </ul>
+               </li>
+
+            <% end %>
+             
         </div>
 </div>
 <br>
