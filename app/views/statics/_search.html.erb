@@ -1,27 +1,31 @@
 <!-- Partial with simple search  -->
-<div class="searchbar">
-<%= form_tag new_search_path, method: :get do |f| %>
     <div class="dropdown">
-    	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-6" data-target="#" href="/page.html">
+    	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-2" data-target="#" href="/page.html">
         What are you looking for? <span class="caret"></span>
     	</a>
-			<ul class="dropdown-menu multi-level col-md-4" role="menu" aria-labelledby="dropdownMenu">
+			<ul class="dropdown-menu multi-level col-md-2" role="menu" aria-labelledby="dropdownMenu">
+			
 			<% @categories.each do |category| %>
       			<li class="dropdown-submenu">
       			<a tabindex="-1" href="#"><%= category.name %></a>
-     				<ul class="dropdown-menu col-md-3">
+      		
+     				<ul class="dropdown-menu col-md-12">
           				<li><a tabindex="-1" href="#">Second level</a></li>			
           				<li><a href="#">Second level</a></li>
          				<li><a href="#">Second level</a></li>
        				</ul>
        			</li>
-    		<% end %> 
+       		<% end %> 
+       		</ul>
+    
+    		
 	</div>
-	<div class ="col-md-3">
+	<div class ="col-md-2">
+	<%= form_tag new_search_path, method: :get do |f| %>
 		<%= text_field_tag :search, nil, placeholder: 'Where?',class: 'form-control' %>
 	</div>
 	<div class ="col-md-2">
 	<%= submit_tag "Search",class: 'form-control btn-warning' %>
 	</div>
-</div>
-<% end %>
+	<% end %>
+
