@@ -1,31 +1,21 @@
 <!-- Partial with simple search  -->
-<div class="container">
-        <div class="dropdown">
-            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-6" data-target="#" href="/page.html">
-                Dropdown <span class="caret"></span>
-            </a>
-    		<ul class="dropdown-menu multi-level col-md-6" role="menu" aria-labelledby="dropdownMenu">
-    		<% @categories.each do |category| %>
-              <li class="dropdown-submenu">
-              <a tabindex="-1" href="#"><%= category.name %></a>
-             <ul class="dropdown-menu">
-                  <li><a tabindex="-1" href="#">Second level</a></li>
-                  <li class="dropdown-submenu">
-                  </li>
-                  <li><a href="#">Second level</a></li>
-                  <li><a href="#">Second level</a></li>
-                </ul>
-               </li>
-
-            <% end %>
-             
-        </div>
-</div>
-<br>
 <div class="searchbar">
 <%= form_tag new_search_path, method: :get do |f| %>
-	<div class ="col-md-6">
-	<%= text_field_tag :search, nil, placeholder: 'What are you looking for?',class: 'form-control' %>
+    <div class="dropdown">
+    	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-6" data-target="#" href="/page.html">
+        What are you looking for? <span class="caret"></span>
+    	</a>
+			<ul class="dropdown-menu multi-level col-md-4" role="menu" aria-labelledby="dropdownMenu">
+			<% @categories.each do |category| %>
+      			<li class="dropdown-submenu">
+      			<a tabindex="-1" href="#"><%= category.name %></a>
+     				<ul class="dropdown-menu col-md-3">
+          				<li><a tabindex="-1" href="#">Second level</a></li>			
+          				<li><a href="#">Second level</a></li>
+         				<li><a href="#">Second level</a></li>
+       				</ul>
+       			</li>
+    		<% end %> 
 	</div>
 	<div class ="col-md-3">
 		<%= text_field_tag :search, nil, placeholder: 'Where?',class: 'form-control' %>
