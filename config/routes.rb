@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   resources :subcategories
   resources :categories
   get 'sessions/new'
@@ -20,6 +22,9 @@ Rails.application.routes.draw do
   root 'statics#home'
 
   resources :users
+  resources :skills
+  resources :categories
+  resources :subcategories
 
 
   # The priority is based upon order of creation: first created -> highest priority.
