@@ -4,7 +4,7 @@ RSpec.describe "subcategories/new", type: :view do
   before(:each) do
     assign(:subcategory, Subcategory.new(
       :name => "MyString",
-      :category => ""
+      :category => nil
     ))
   end
 
@@ -15,7 +15,7 @@ RSpec.describe "subcategories/new", type: :view do
 
       assert_select "input#subcategory_name[name=?]", "subcategory[name]"
 
-      assert_select "input#subcategory_category[name=?]", "subcategory[category]"
+      assert_select "input#subcategory_category_id[name=?]", "subcategory[category_id]"
     end
   end
 end

@@ -5,11 +5,11 @@ RSpec.describe "subcategories/index", type: :view do
     assign(:subcategories, [
       Subcategory.create!(
         :name => "Name",
-        :category => ""
+        :category => nil
       ),
       Subcategory.create!(
         :name => "Name",
-        :category => ""
+        :category => nil
       )
     ])
   end
@@ -17,6 +17,6 @@ RSpec.describe "subcategories/index", type: :view do
   it "renders a list of subcategories" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

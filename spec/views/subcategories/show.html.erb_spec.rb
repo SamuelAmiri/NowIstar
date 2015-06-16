@@ -4,7 +4,7 @@ RSpec.describe "subcategories/show", type: :view do
   before(:each) do
     @subcategory = assign(:subcategory, Subcategory.create!(
       :name => "Name",
-      :category => ""
+      :category => nil
     ))
   end
 
