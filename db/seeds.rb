@@ -11,7 +11,7 @@ categories = Category.create([
 	{name: 'Automotive & Bike'},
 	{name: 'Beauty'},
 	{name: 'Business & Finance'},
-	{name: 'Child & Enlderly Care'},
+	{name: 'Child & Elderly Care'},
 	{name: 'Classes, Tutors & Teachers'},
 	{name: 'Computers & Tech'},
 	{name: 'Event'},

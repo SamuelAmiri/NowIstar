@@ -5,7 +5,9 @@
                 Dropdown <span class="caret"></span>
             </a>
     		<ul class="dropdown-menu multi-level col-md-6" role="menu" aria-labelledby="dropdownMenu">
-              <li><a href="#">Some action</a></li>
+    		<% @categories.each do |category| %>
+              <li><%= category.name %></li>
+            <% end %>
               <li><a href="#">Some other action</a></li>
               <li class="divider"></li>
               <li class="dropdown-submenu col-md-6">
