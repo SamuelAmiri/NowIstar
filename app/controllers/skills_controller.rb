@@ -29,7 +29,8 @@ class SkillsController < ApplicationController
   def destroy
   end
 
-Private
+paramsrivate
+
   def set_skill
     @skill = Skill.find(params[:id])
   end

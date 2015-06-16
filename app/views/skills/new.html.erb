@@ -1,2 +1,22 @@
-<h1>Skills#new</h1>
-<p>Find me in app/views/skills/new.html.erb</p>
+<%= form_for @skill do |f| %>
+
+<div>
+     <%= f.label :title %>
+     <%= f.text_field :title %>
+</div>
+
+<div>
+    <%= f.label :subcategory_id %>
+    <%= f.text_field :subcategory_id %>
+</div>
+
+<div>
+     <%= f.label :price %>
+	 <%= f.number_field :price %>
+</div>
+
+
+ <%= f.submit "Add new skill" %>
+<% end %>
+
+<%= link_to "Back to the list!", skills_path %>

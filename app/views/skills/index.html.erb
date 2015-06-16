@@ -1,2 +1,6 @@
-<h1>Skills#index</h1>
-<p>Find me in app/views/skills/index.html.erb</p>
+<% @skills.each do |skill| %>
+
+<h2><%=skill.title %></h2>
+<h4><%=skill.subcategory_id %></h4>
+<h4><%=skill.price %></h4>
+<% end %>
