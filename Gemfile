@@ -52,6 +52,7 @@ group :development, :test do
 
   # Tests with RSpec gem
   gem 'rspec-rails'
+  gem 'capybara'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
