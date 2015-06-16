@@ -6,7 +6,7 @@
             </a>
     		<ul class="dropdown-menu multi-level col-md-6" role="menu" aria-labelledby="dropdownMenu">
     		<% @categories.each do |category| %>
-              <li><%= category.name %></li>
+              <li><a tabindex="-1" href="#"><li><%= category.name %></a></li>
             <% end %>
               <li><a href="#">Some other action</a></li>
               <li class="divider"></li>
