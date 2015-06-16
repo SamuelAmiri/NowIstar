@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :skills
 	has_secure_password
 	has_attached_file :image, styles: {small: "50x50", med: "100x100", large: "200x200" }, :default_url => ""
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
