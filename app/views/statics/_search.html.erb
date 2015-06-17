@@ -1,22 +1,21 @@
 <!-- Partial with simple search  -->
     <div class="dropdown">
-    	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-2" data-target="#" href="/page.html">
+    	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-3" data-target="#" href="/page.html">
         What are you looking for? <span class="caret"></span>
     	</a>
-			<ul class="dropdown-menu multi-level col-md-2" role="menu" aria-labelledby="dropdownMenu">
+			<ul class="dropdown-menu multi-level col-md-3" role="menu" aria-labelledby="dropdownMenu">
 			
-			<% @categories.each do |category| %>
+				<% @categories.each do |category| %>
       			<li class="dropdown-submenu">
-      			<a tabindex="-1" href="#"><%= category.name %></a>
-      		
-     				<ul class="dropdown-menu col-md-12">
-          				<li><a tabindex="-1" href="#">Second level</a></li>			
-          				<li><a href="#">Second level</a></li>
-         				<li><a href="#">Second level</a></li>
-       				</ul>
-       			</li>
-       		<% end %> 
-       		</ul>
+      				<a tabindex="-1" href="#"><%= category.name %></a>
+     				  <ul class="dropdown-menu col-md-12">
+     				  	<% category.subcategories.each do |subcategory| %>	
+          					<li><a tabindex="-1" href="#"><%= subcategory.name %></a></li>  				
+            		<% end %>
+            	</ul>
+            </li>
+       	<% end %> 
+       </ul>
     
     		
 	</div>
