@@ -26,9 +26,11 @@
     </tr>
     <tr>
         <td>Mugshot: </td>
-        <td><img src="<%= @auth["image_file_name"] %>" width="50" /></td>
+        <td><img src="<%= current_user.image.url(:med) %>" width="50" /></td>
     </tr>
 </table>
+
+
 
 <h2>Auth Contains</h2>
 <code>

@@ -17,13 +17,17 @@
         <% if current_user %>
         <li><a href="/sessions/show">Profile</a></li>
         <li><a href="/auth/logout">Logout</a></li>
+        <li><img src="<%= current_user.image.url(:med) %>" width="50" /></li>
+        <li>%= image_tag("current_user.image.url(:med)  %>") %></li>
         <% else %>
         <li><a href="/auth/facebook">Login via Facebook</a></li>
         <li><a href="/auth/linkedin">Login via LinkedIn</a></li>
         <% end %>
     </ul>
 </nav>
-<!-- <script>
+
+
+<script>
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1444726355828797',
@@ -39,7 +43,7 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script> -->
+</script>
 
 <div class="container">
   <% flash.each do |key, value| %>
