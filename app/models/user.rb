@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	    user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
 	    user.fname = auth_hash['info']['first_name']
 	    user.lname = auth_hash['info']['last_name']
-	    user.image = auth_hash['info']['image']
+	    #user.image = auth_hash['info']['image']
 	    user.save!
 	    user
 	  end

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150616230955) do
-=======
-ActiveRecord::Schema.define(version: 20150616020907) do
->>>>>>> users
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,14 +68,11 @@ ActiveRecord::Schema.define(version: 20150616020907) do
     t.datetime "image_updated_at"
   end
 
-<<<<<<< HEAD
-  add_foreign_key "skills", "subcategories"
-  add_foreign_key "skills", "users"
-=======
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
   add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
->>>>>>> users
+  add_foreign_key "skills", "subcategories"
+  add_foreign_key "skills", "users"
   add_foreign_key "subcategories", "categories"
 end

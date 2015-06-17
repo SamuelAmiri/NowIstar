@@ -13,17 +13,16 @@
 <nav class="navbar navbar-inverse navbar-static-top">
     <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
-        <% if session['auth'] %>
+        <% if current_user %>
         <li><a href="/sessions/show">Profile</a></li>
         <li><a href="/auth/logout">Logout</a></li>
         <% else %>
         <li><a href="/auth/facebook">Login via Facebook</a></li>
         <li><a href="/auth/linkedin">Login via LinkedIn</a></li>
-        <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
         <% end %>
     </ul>
 </nav>
-<script>
+<!-- <script>
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1444726355828797',
@@ -39,7 +38,7 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> -->
 
 <div class="container">
   <% flash.each do |key, value| %>
