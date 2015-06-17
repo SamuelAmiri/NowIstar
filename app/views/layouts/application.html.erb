@@ -19,6 +19,7 @@
         <% else %>
         <li><a href="/auth/facebook">Login via Facebook</a></li>
         <li><a href="/auth/linkedin">Login via LinkedIn</a></li>
+        <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
         <% end %>
     </ul>
 </nav>
@@ -39,6 +40,14 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+  
 <%= yield %>
 
 </body>

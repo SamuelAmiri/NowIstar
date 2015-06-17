@@ -6,7 +6,7 @@
 <table>
     <tr>
         <td>Auth Provider: </td>
-        <td><%= @auth["provider"] %></td>
+        <td><%= current_user.provider %></td>
     </tr>
     <tr>
         <td>Unique ID: </td>
@@ -14,19 +14,19 @@
     </tr>
     <tr>
         <td>Email: </td>
-        <td><%= @auth["info"]["email"] %></td>
+        <td><%= @auth["email"] %></td>
     </tr>
     <tr>
         <td>Username: </td>
-        <td><%= @auth["info"]["nickname"] %></td>
+        <td><%= @auth["nickname"] %></td>
     </tr>
     <tr>
         <td>Name: </td>
-        <td><%= @auth["info"]["name"] %></td>
+        <td><%= @auth["fname"] %></td>
     </tr>
     <tr>
         <td>Mugshot: </td>
-        <td><img src="<%= @auth["info"]["image"] %>" width="50" /></td>
+        <td><img src="<%= @auth["image_file_name"] %>" width="50" /></td>
     </tr>
 </table>
 
