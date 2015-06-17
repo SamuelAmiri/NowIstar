@@ -7,6 +7,23 @@ BODY {
 .pushdown {
 	height: 20vw;
 }
+.col {
+    border: 1px solid black;
+}
+
+.skillattributes {
+    text-align: center;
+}
+
+.skills {
+    border: 2px solid black;
+}
+#googleMap {
+  width: 110%;
+  height: 50vw;
+  margin-bottom: 15px;
+  border: 2px solid black;
+}
 
 .dropdown-submenu {
     position: relative;
