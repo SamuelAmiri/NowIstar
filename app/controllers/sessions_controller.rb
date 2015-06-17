@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-	  # begin
+	   begin
 	    @user = User.from_omniauth(request.env['omniauth.auth'])
 	    session[:user_id] = @user.id
 	   	flash[:success] = "Welcome, #{@user.fname}!"
-	  # rescue
-	  #   flash[:warning] = "There was an error while trying to authenticate you..."
-	  # end
-	  redirect_to sessions_show_path
+	   rescue
+	     flash[:warning] = "There was an error while trying to authenticate you..."
+	   end
+	  redirect_to new_user_path
 	end
 
 	def destroy

@@ -1,31 +1,52 @@
-<%= form_for @user do |f| %>
-	<div>
-		First name:
-		<%= f.text_field :fname %>
-	</div>
-	<div>
-		Last name:
-		<%= f.text_field :lname %>
-	</div>
-	<div>
-		<%= f.label :image %>
-		<%= f.file_field :image%>
-	</div>
-	<div>
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-	<div>
+<%= form_for([current_user]) do |f| %>
+  <% if current_user.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@current_user.errors.count, "error") %> prohibited this current_user from being saved:</h4>
 
-	<div>
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-	</div>
+      <ul>
+      <% @current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-	<div>
-		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation %>
-	</div>
-		<%= f.submit "Add new user!" %>
+  <% if current_user.image == nil %>
+    <div class="form-group">
+      <%= f.file_field :image, label: "Upload image of yourself" %>
+    </div>
+  <% else %>
+  <div class="form-group">
+    <%#= f.text_field :title, placeholder: "Artist, Guitarist, Gardner...", class: "form-control", autofocus: true, label: "What do you want your title to be?" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :bio, placeholder: "Enter your professional summary", class: "form-control", label: "Tell us about yourself" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :street_address, placeholder: "12345 Fake St", class: "form-control", label: "What is your street address?" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :city, placeholder: "Los Angeles", class: "form-control", label: "What is your city?" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :zipcode, placeholder: "91919", class: "form-control", label: "What is your zipcode?" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :phonenumber, placeholder: "888-555-1234", class: "form-control", label: "What contact number?" %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+        <%#= f.text_field :portfolio_link, placeholder: "www.exampleportfolio.com", class: "form-control", label: "What is the link to your portfolio" %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div class="form-group">
+    <%= f.submit " Submit ", class: "button button-small" %>
+  </div>
+  <% end %>
 <% end %>
-<%= link_to "Back to the list!", users_path %><h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
