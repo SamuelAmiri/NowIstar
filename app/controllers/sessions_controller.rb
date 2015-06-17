@@ -4,18 +4,30 @@ class SessionsController < ApplicationController
   	end
 
 	def show
-	    redirect_to root_path unless session['auth']
-	    @auth = session['auth']
+	    redirect_to root_path unless session[:user_id]
+	    @auth = current_user
 	end
 
 	def create
-	    @auth = request.env['omniauth.auth']
-	    session['auth'] = @auth
-	    redirect_to sessions_show_path
+	  begin
+	    @user = User.from_omniauth(request.env['omniauth.auth'])
+	    session[:user_id] = @user.id
+	   	flash[:success] = "Welcome, #{@user.fname}!"
+	  rescue
+	    flash[:warning] = "There was an error while trying to authenticate you..."
+	  end
+	  redirect_to sessions_show_path
 	end
 
 	def destroy
-	    session['auth'] = nil
-	    redirect_to root_path
+	  if current_user
+	    session.delete(:user_id)
+	    flash[:success] = 'See you!'
+	  end
+	  redirect_to root_path
+	end
+
+	def auth_failure
+	  redirect_to root_path
 	end
 end

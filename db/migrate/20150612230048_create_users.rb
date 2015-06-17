@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :image
       t.string :email
       t.string :password_digest
-      t.boolean :provider
+      t.boolean :servicer
       t.integer :phonenumber
       t.string :street_address
       t.string :city
@@ -14,7 +14,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string :state
       t.text :bio
 
+      t.string :provider, null: false
+      t.string :uid, null: false
+
       t.timestamps null: false
-    end
+    end   
+      add_index :users, :provider
+      add_index :users, :uid
+      add_index :users, [:provider, :uid], unique: true
+
   end
 end
