@@ -8,14 +8,17 @@
 				<th>Price</th>
 			</tr>
 		</thead>
-
-		<% @skills.each do |skill| %>
-		<td><%=skill.user %></td>
-		<td><%=skill.title %></td>
-		<td><%=skill.subcategory_id %></td>
-		<td><%=skill.price %></td>
-		<% end %>
-
+		<tbody>
+			<% @skills.each do |skill| %> 
+				<tr>
+					<td><%=skill.user %></td>
+					<td><%=skill.title %></td>
+					<td><%=skill.subcategory_id %></td>
+					<td><%=skill.price %></td>
+				</tr>
+					<% end %>
+		</tbody>
+	
 	</table>
 </div>
 
