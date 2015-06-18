@@ -6,20 +6,28 @@ $(document).ready(function(){
             	"click",(function(){
 
 
-            	var innertext = $(this).text()
+            		var innertext = $(this).text()
 
-		    	$('#dLabel').text(innertext)
+		    		$('#dLabel').text(innertext)
 
-				}));
+				})
+			)
 
 
-
-			$('.subcategory').click(function(){
-
-				alert("test")
-
-			});
 		}
 	)
 
-});
+	$('.subcategory').each(
+		function(){
+
+			$(this).bind (
+				"click",(function(){
+					var innertext = $(this).text()
+					$('#dLabel').text(innertext)
+				})
+			)
+
+		}
+	);
+})
+	
