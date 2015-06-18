@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   root 'statics#home'
 
-  resources :users do 
-    resources :skills
-  end 
+  resources :users
+  resources :skills
+  
 
   resources :categories
   resources :subcategories
