@@ -1,4 +1,29 @@
 <div class="col-md-6">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Service</th>
+				<th>Location</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+
+		<% @skills.each do |skill| %>
+		<td><%=skill.user %></td>
+		<td><%=skill.title %></td>
+		<td><%=skill.subcategory_id %></td>
+		<td><%=skill.price %></td>
+		<% end %>
+
+	</table>
+</div>
+
+
+<div class="col-md-6">
+	<div id="googleMap"></div>
+</div>
+<!-- 
 	<div class="skillattributes">
 		<div class="col col-md-2">
 		User
@@ -20,10 +45,4 @@
 		<h4><%=skill.subcategory_id %></h4>
 		<h4><%=skill.price %></h4>
 	</div>
-	<% end %>
-</div>
-
-<div class="col-md-6">
-	<div id="googleMap"></div>
-</div>
-
+	<!-- <% end %> -->
