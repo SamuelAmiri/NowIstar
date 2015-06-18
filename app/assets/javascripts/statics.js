@@ -7,11 +7,8 @@ $(document).ready(function(){
 
 
             	var innertext = $(this).text()
-		    	var press = $(this).prop('name');
 
-
-		    	alert(innertext)
-
+		    	$('#dLabel').text(innertext)
 
 				}));
 
