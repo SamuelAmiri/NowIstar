@@ -29,6 +29,20 @@ class SkillsController < ApplicationController
   def destroy
   end
 
+  def search
+    @skills = Skill.search(skill: params[:search][:skill], location: params[:search][:location])
+  end
+  
+  def self.search(skill:, location:)
+
+    skills = Skill.where("name ILIKE ? OR description ILIKE ?", "%" + skill + "%", "%" + skill + "%") if skill.present?
+    skills = skills.near(location, 20) if location.present? && skill.present?
+    skills
+
+  end
+
+  
+
 private
 
   def set_skill
@@ -36,7 +50,7 @@ private
   end
 
   def skill_params
-    params.require(:skill).permit(:title, :subcategory_id, :price, :description, :image)
+    params.require(:skill).permit(:title, :subcategory_id, :price, :description, :image, :address, :city, :zipcode, :state)
   end
 
 end

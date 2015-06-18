@@ -39,6 +39,7 @@ gem 'pg'
 
 gem 'figaro'
 
+gem 'geocoder'
 
 #Use OmniAuth for authentication of LinkedIn
 gem 'omniauth'	
