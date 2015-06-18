@@ -1,11 +1,11 @@
-<div class="col-md-7 skillattributes">
-	<table class="table table-bordered table-hover">
+<div class="col-md-9 skillattributes">
+	<table class="table table-bordered table-hover spacing-table">
 		<thead>
 			<tr>
-				<th>User</th>
-				<th>Service</th>
-				<th>Location</th>
-				<th>Price</th>
+				<th class="col-md-2">User</th>
+				<th class="col-md-5">Service</th>
+				<th class="col-md-1">Subcategory</th>
+				<th class="col-md-1">Price</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -16,14 +16,13 @@
 					<td><%=skill.subcategory_id %></td>
 					<td><%=skill.price %></td>
 				</tr>
-					<% end %>
+			<% end %>
 		</tbody>
-	
 	</table>
 </div>
 
 
-<div class="col-md-5">
+<div class="col-md-4 googlemap">
 	<div id="googleMap"></div>
 </div>
 <!-- 
@@ -48,4 +47,12 @@
 		<h4><%=skill.subcategory_id %></h4>
 		<h4><%=skill.price %></h4>
 	</div>
-	<!-- <% end %> -->
+	<!-- <% end %> 
+
+STYLE SHEET
+
+	.skills {
+    border: 2px solid black;
+    width: 649px;
+    margin-left: -90px;
+} -->
