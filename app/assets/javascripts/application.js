@@ -16,6 +16,13 @@
 //= require turbolinks
 //= require_tree .
 
+
+$("input").click(function(){
+
+	alert("test");
+
+})
+
 function initialize(){
 	var mapProperties = {
   		center:new google.maps.LatLng(34.0129821,-118.495196), zoom: 17,mapTypeId: google.maps.MapTypeId.ROADMAP
