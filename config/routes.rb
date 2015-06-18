@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :subcategories
-  resources :categories
+
   get 'sessions/new'
 
   get 'sessions/show'
@@ -20,8 +19,10 @@ Rails.application.routes.draw do
 
   root 'statics#home'
 
-  resources :users
-  resources :skills
+  resources :users do 
+    resources :skills
+  end 
+
   resources :categories
   resources :subcategories
 
