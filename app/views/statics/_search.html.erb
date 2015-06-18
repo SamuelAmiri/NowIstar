@@ -7,10 +7,10 @@
 			
 				<% @categories.each do |category| %>
       			<li class="dropdown-submenu">
-      				<a class="category" tabindex="-1" <%= category.id  %> ><%= category.name %></a>
+      				<a class="category" tabindex="-1" value=<%= category.id  %> ><%= category.name %></a>
      				  <ul class="dropdown-menu col-md-12">
      				  	<% category.subcategories.each do |subcategory| %>	
-          					<li><a tabindex="-1" ><%= subcategory.name %></a></li>  				
+          					<li><a class="subcategory" tabindex="-1" value=<%= subcategory.id %> ><%= subcategory.name %></a></li>  				
             		<% end %>
             	</ul>
             </li>
