@@ -3,6 +3,18 @@ class User < ActiveRecord::Base
 	#has_attached_file :image, styles: {small: "50x50", med: "100x100", large: "200x200" }, :default_url => ""
 	#validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	
+	def full_address
+	 	street_address.to_s + ", " + city.to_s + ", " + state.to_s + ", " + zipcode.to_s
+	end
+
+	def filled
+		fname != nil
+		lname != nil
+		phonenumber != nil
+		street_address != nil
+		city != nil
+	end
+
 	class << self
 	  def from_omniauth(auth_hash)
 	    user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
@@ -16,26 +28,5 @@ class User < ActiveRecord::Base
 	    user.save!
 	    user
 	  end
-	 
-	  private
-	 
-	  def get_social_location_for(provider, location_hash)
-	    case provider
-	      when 'linkedin'
-	        location_hash['name']
-	      else
-	        location_hash
-	    end
-	  end
-	 
-	  def get_social_url_for(provider, urls_hash)
-	    case provider
-	      when 'linkedin'
-	        urls_hash['public_profile']
-	      else
-	        urls_hash[provider.capitalize]
-	    end
-	  end
 	end
-
 end
