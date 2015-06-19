@@ -13,10 +13,7 @@ $(document).ready(function(){
 		    		$('.will-hide').attr('value', type)
 		    		$('.will-hide2').attr('value', categoryid)
 		    		$('#dLabel').text(innertext)
-
-
-
-
+		    		
 				})
 			)
 
