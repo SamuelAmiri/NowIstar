@@ -1,4 +1,31 @@
-<div class="col-md-6">
+<div class="col-md-9 skillattributes">
+	<table class="table table-bordered table-hover spacing-table">
+		<thead>
+			<tr>
+				<th class="col-md-2">User</th>
+				<th class="col-md-5">Service</th>
+				<th class="col-md-1">Subcategory</th>
+				<th class="col-md-1">Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @skills.each do |skill| %> 
+				<tr>
+					<td><%=skill.user %></td>
+					<td><%=skill.title %></td>
+					<td><%=skill.subcategory_id %></td>
+					<td><%=skill.price %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+
+<div class="col-md-4 googlemap">
+	<div id="googleMap"></div>
+</div>
+<!-- 
 	<div class="skillattributes">
 		<div class="col col-md-2">
 		User
@@ -20,10 +47,12 @@
 		<h4><%=skill.subcategory_id %></h4>
 		<h4><%=skill.price %></h4>
 	</div>
-	<% end %>
-</div>
+	<!-- <% end %> 
 
-<div class="col-md-6">
-	<div id="googleMap"></div>
-</div>
+STYLE SHEET
 
+	.skills {
+    border: 2px solid black;
+    width: 649px;
+    margin-left: -90px;
+} -->

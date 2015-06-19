@@ -13,11 +13,17 @@ BODY {
 
 .skillattributes {
     text-align: center;
+    width: 76%;
+    margin-left: -90px; 
+}
+.spacing-table {
+    border-collapse: separate;
+    border-spacing: 0 5px; /* this is the ultimate fix */
+    border-color: white;
+    border-top: solid gray 1px;
+
 }
 
-.skills {
-    border: 2px solid black;
-}
 #googleMap {
   width: 110%;
   height: 50vw;
