@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   ## DISPLAYS A SINGLE USER
   def show
     @user = User.find(params[:id])
+    @skills = @user.skills
   end
 
   ## USER PUTS IN THEIR INFORMATION

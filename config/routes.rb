@@ -19,8 +19,11 @@ Rails.application.routes.draw do
 
   root 'statics#home'
 
-  resources :users
-  resources :skills
+  resources :users do
+    resources :skills, except: :index
+  end
+
+  get 'skills' => "skills#index"
   
 
   resources :categories
