@@ -6,8 +6,15 @@
 </div>
 
 <div>
-    <%= f.label :subcategory_id %>
-    <%= f.text_field :subcategory_id %>
+    <%= f.label :Skill_Category %>
+    <%= f.grouped_collection_select :subcategory_id,
+    Category.order(:name), :subcategories, :name,
+    :id, :name %>
+</div>
+
+<div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 </div>
 
 <div>
@@ -31,6 +38,7 @@
     <%= f.label :state %>
     <%= f.text_field :state %>
 </div>
+
 
  <%= f.submit "Add new skill" %>
 <% end %>
