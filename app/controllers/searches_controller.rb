@@ -13,6 +13,14 @@ class SearchesController < ApplicationController
 		end
 
 	end
+
+	def self.search(skill:, location:)
+
+  		skills = Skill.where("name ILIKE ? OR description ILIKE ?", "%" + skill + "%", "%" + skill + "%") if skill.present?
+  		skills = skills.near(location, 20) if location.present? && skill.present?
+  		skills
+
+end
 	
 	def results
 	end
