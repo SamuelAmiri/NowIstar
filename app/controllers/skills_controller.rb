@@ -29,8 +29,15 @@ class SkillsController < ApplicationController
   def destroy
   end
 
-  def search
-    @skills = Skill.search(skill: params[:search][:skill], location: params[:search][:location])
+  def search 
+    fail
+    if params[:subcategory].present?
+      @skills = Subcategory.search(id: params[:subcategoryid], location: params[:search][:location])
+    elsif params[:category].present?
+      @skills = Category.search(id: params[:categoryid], location: params[:search][:location])
+
+    # @skills = Skill.search(skill: params[:search][:skill], location: params[:search][:location])
+    end
   end
   
   def self.search(skill:, location:)

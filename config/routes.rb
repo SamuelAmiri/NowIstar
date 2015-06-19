@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :subcategories
-  resources :categories
+
   get 'sessions/new'
 
   get 'sessions/show'
@@ -16,12 +15,14 @@ Rails.application.routes.draw do
   
   get 'auth/logout' => 'sessions#destroy'
 
-  get 'search/new' => "search#new", as: :new_search
+  get 'skills/search' => "skills#search", as: :new_search
 
   root 'statics#home'
 
   resources :users
   resources :skills
+  
+
   resources :categories
   resources :subcategories
 

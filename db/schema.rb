@@ -54,15 +54,18 @@ ActiveRecord::Schema.define(version: 20150618204526) do
   create_table "users", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
+    t.string   "image"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "provider"
+    t.boolean  "servicer"
     t.integer  "phonenumber"
     t.string   "street_address"
     t.string   "city"
     t.integer  "zipcode"
     t.string   "state"
     t.text     "bio"
+    t.string   "provider",           null: false
+    t.string   "uid",                null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
@@ -72,6 +75,10 @@ ActiveRecord::Schema.define(version: 20150618204526) do
     t.float    "latitude"
     t.float    "longitude"
   end
+
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
+  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
   add_foreign_key "skills", "subcategories"
   add_foreign_key "skills", "users"

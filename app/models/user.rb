@@ -7,14 +7,6 @@ class User < ActiveRecord::Base
 	 	street_address.to_s + ", " + city.to_s + ", " + state.to_s + ", " + zipcode.to_s
 	end
 
-	def filled
-		fname != nil
-		lname != nil
-		phonenumber != nil
-		street_address != nil
-		city != nil
-	end
-
 	class << self
 	  def from_omniauth(auth_hash)
 	    user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
