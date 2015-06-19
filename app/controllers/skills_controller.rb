@@ -48,27 +48,6 @@ class SkillsController < ApplicationController
     redirect_to user_path
   end
 
-  def search 
-
-    if params[:type ] == "subcategory"
-      @skills = Skill.where(subcategory_id: params[:id], zipcode: params[:location])
-      
-    elsif params[:type] == "category"
-      @skills = Skill.where(id: params[:id], location: params[:location])
-
-    end
-  end
-  
-  def self.search(skill:, location:)
-
-    @skills = Skill.where("name ILIKE ? OR description ILIKE ?", "%" + skill + "%", "%" + skill + "%") if skill.present?
-    @skills = skills.near(location, 20) if location.present? && skill.present?
-    @skills
-
-  end
-
-  
-
 private
   
   def load_user
