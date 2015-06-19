@@ -6,7 +6,9 @@ class SearchController < ApplicationController
 			@skills = Skill.where(subcategory_id: params[:id], zipcode: params[:location])
 
 		elsif params[:type] == "category"
-			@skills = Skill.where(id: params[:id], location: params[:location])
+			@subcategories = Subcategory.where(category_id: params[:id])
+			
+			@skills = Skill.where(subcategory_id: params[:id], zipcode: params[:location])
 		end
 
 	end
