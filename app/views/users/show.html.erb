@@ -7,32 +7,47 @@
             <div class="col-xs-12 col-sm-9 col-lg-10">
                 <div id="profile-style">
                     <h1><%= "#{current_user.fname} #{current_user.lname}" %></h1>
+                        
                         <div id="">
                             <h3>Address</h3><%= @user.full_address %>
                         </div>
+
                         <div id="">
                             <h3>Bio</h3><%= @user.bio %>
                         </div>
-                        <div id="">
-                            <h3>Bio</h3><%= @user.bio %>
-                        </div>
-                        <div id="">
-                            <h3>Bio</h3><%= @user.bio %>
-                        </div>
+
                         <div>
                             <%= link_to "Show all of your skills", user_skills_path(current_user) %><br>
                             <%= link_to "Post a new skill", new_user_skill_path(current_user) %><br>
                         </div>
 
-                        <div>
-                            <% @skills.each do |skill| %>
-                                <div class="skills">
-                                    <h2><%=skill.title %></h2>
-                                    <h4><%=skill.subcategory_id %></h4>
-                                    <h4><%=skill.price %></h4>
-                                </div>
-                            <% end %>
-                        </div>
+                    <div class="col-md-9 skillattributes">
+                        <table class="table table-bordered table-hover spacing-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-5">Service</th>
+                                    <th class="col-md-1">Subcategory</th>
+                                    <th class="col-md-1">Price</th>
+                                   <!--  <th class="col-md-1">Edit</th>
+                                    <th class="col-md-1">Delete</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @skills.each do |skill| %> 
+                                    <tr>
+                                        <td><%=skill.title %></td>
+                                        <td><%=skill.subcategory_id %></td>
+                                        <td><%=skill.price %></td>
+                                        <td><%= link_to "Edit", edit_user_skill_path(current_user, skill), class:"btn btn-info" %></td>
+                                        <td><%= link_to 'Delete', user_skill_path(current_user, skill),
+                                                  method: :delete,
+                                                  data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %><br><hr></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>

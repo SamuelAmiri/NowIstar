@@ -24,13 +24,25 @@ class SkillsController < ApplicationController
       end
   end
 
-  def edit  
+  def edit
+    @skill = Skill.find(params[:id])  
   end
 
   def update
+    @skill = Skill.find(params[:id])
+
+    if @skill.update(skill_params)
+      flash[:success] = "Your Skill has been updated"
+      redirect_to user_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    Skill.find(params[:id]).destroy
+    flash[:Congrats] = "You have deleted your skill!"
+    redirect_to user_path
   end
 
   def search
