@@ -1,7 +1,27 @@
+<div class="col-md-9 skillattributes">
+	<table class="table table-bordered table-hover spacing-table">
+		<thead>
+			<tr>
+				<th class="col-md-2">User</th>
+				<th class="col-md-5">Service</th>
+				<th class="col-md-1">Subcategory</th>
+				<th class="col-md-1">Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @skills.each do |skill| %> 
+				<tr>
+					<td><%=skill.user %></td>
+					<td><%=skill.title %></td>
+					<td><%=skill.subcategory_id %></td>
+					<td><%=skill.price %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 
-<% @skills.each do |skill| %>
-	<%= skill.title%><br><br>
 
-<% end %>
-
-
+<div class="col-md-4 googlemap">
+	<div id="googleMap"></div>
+</div>
