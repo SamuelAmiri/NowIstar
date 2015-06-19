@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   require 'pry'
-  before_filter :load_user, except: :index
+  before_filter :load_user, except: [:index, :search]
 
 
   def index
