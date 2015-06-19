@@ -1,26 +1,30 @@
 class SkillsController < ApplicationController
+  before_filter :load_user, except: :index
+
   def index
     @skills = Skill.all
   end
-
+  
   def show
-    @skill = set_skill
+    @skill = @user.skills.find(params[:id])
   end
 
   def new
-    @skill = Skill.new
+    @skill = @user.skills.new
   end
 
   def create
     @skill = Skill.new(skill_params)
+    @skill.user = current_user
       if @skill.save
-        redirect_to skills_path
+        flash[:success] = "Your Skill has been saved"
+        redirect_to user_skill_path(current_user, @skill)
       else
         render :new
       end
   end
 
-  def edit
+  def edit  
   end
 
   def update
@@ -44,6 +48,10 @@ class SkillsController < ApplicationController
   
 
 private
+  
+  def load_user
+    @user = User.find(params[:user_id])
+  end
 
   def set_skill
     @skill = Skill.find(params[:id])

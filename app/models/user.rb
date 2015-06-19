@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	#validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	def full_address
-	 	street_address.to_s + ", " + city.to_s + ", " + state.to_s + ", " + zipcode.to_s
+		[street_address, city, state, zipcode].join(', ')
 	end
 
 	class << self

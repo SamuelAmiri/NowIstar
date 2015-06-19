@@ -20,8 +20,18 @@
                             <h3>Bio</h3><%= @user.bio %>
                         </div>
                         <div>
-                            <%= link_to "Show all of your skills", skills_path %><br>
-                            <%= link_to "Post a new skill", new_skill_path %><br>
+                            <%= link_to "Show all of your skills", user_skills_path(current_user) %><br>
+                            <%= link_to "Post a new skill", new_user_skill_path(current_user) %><br>
+                        </div>
+
+                        <div>
+                            <% @skills.each do |skill| %>
+                                <div class="skills">
+                                    <h2><%=skill.title %></h2>
+                                    <h4><%=skill.subcategory_id %></h4>
+                                    <h4><%=skill.price %></h4>
+                                </div>
+                            <% end %>
                         </div>
                 </div>
             </div>

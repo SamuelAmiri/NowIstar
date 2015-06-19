@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <% if current_user %>
-        <li><a href="/sessions/show">Profile</a></li>
+        <li><a href="/users/<%= current_user.id %>">Profile</a></li>
         <li><a href="/auth/logout">Logout</a></li>
         <li><img src="<%= current_user.image %>" width="50" /></li>
         <% else %>
@@ -26,7 +26,7 @@
 </nav>
 
 
-<script>
+<!-- <script>
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1444726355828797',
@@ -42,7 +42,7 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> -->
 
 <div class="container">
   <% flash.each do |key, value| %>
