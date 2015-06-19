@@ -8,18 +8,12 @@ $(document).ready(function(){
             		var type = $(this).attr('type')
             		var categoryid = $(this).attr('value')
             		var innertext = $(this).text()
-
-
-		    		
+		
 
 		    		$('.will-hide').attr('value', type)
 		    		$('.will-hide2').attr('value', categoryid)
 		    		$('#dLabel').text(innertext)
-		    		$('#dLabel').attr('type', type)
-		    		$('#dLabel').attr('name', categoryid)
-
-
-
+		    		
 				})
 			)
 
@@ -40,8 +34,7 @@ $(document).ready(function(){
 					$('.will-hide').attr('value', type)
 		    		$('.will-hide2').attr('value', subcategoryid)
 		    		$('#dLabel').text(innertext)
-		    		$('#dLabel').attr('type', type)
-		    		$('#dLabel').attr('id', subcategoryid)
+
 				})
 			)
 
