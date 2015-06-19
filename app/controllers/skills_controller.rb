@@ -52,11 +52,9 @@ class SkillsController < ApplicationController
     if params[:type ] == "subcategory"
       @skills = Skill.where(subcategory_id: params[:id], zipcode: params[:location])
       
-
     elsif params[:type] == "category"
-      @skills = Category.search(id: params[:id], location: params[:search][:location])
+      @skills = Skill.where(id: params[:id], location: params[:location])
 
-    # @skills = Skill.search(skill: params[:search][:skill], location: params[:search][:location])
     end
   end
   

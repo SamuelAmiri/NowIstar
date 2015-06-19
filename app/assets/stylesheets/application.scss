@@ -16,12 +16,16 @@ BODY {
     width: 76%;
     margin-left: -90px; 
 }
+
 .spacing-table {
     border-collapse: separate;
     border-spacing: 0 5px; /* this is the ultimate fix */
     border-color: white;
     border-top: solid gray 1px;
+}
 
+.will-hide, .will-hide2 {
+    display: none;
 }
 
 #googleMap {
