@@ -16,7 +16,7 @@ $(document).ready(function(){
 		    		$('.will-hide2').attr('value', categoryid)
 		    		$('#dLabel').text(innertext)
 		    		$('#dLabel').attr('type', type)
-		    		$('#dLabel').attr('id', categoryid)
+		    		$('#dLabel').attr('name', categoryid)
 
 
 
