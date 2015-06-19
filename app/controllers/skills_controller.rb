@@ -2,11 +2,10 @@ class SkillsController < ApplicationController
   require 'pry'
   before_filter :load_user, except: [:index, :search]
 
-
   def index
     @skills = Skill.all
   end
-  
+
   def show
     @skill = @user.skills.find(params[:id])
   end

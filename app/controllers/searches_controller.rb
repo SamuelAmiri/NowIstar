@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
       		@skills = Skill.where(subcategory_id: params[:id], zipcode: params[:location])
       
     	elsif params[:type] == "category"
-    		@skills = Skill.where(id: params[:id], location: params[:location])
+    		@skills = Skill.where('(id: params[:id] AND location: params[:location])', )
 
     	end
 	end
