@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   get 'auth/logout' => 'sessions#destroy'
 
-  get 'search/new' => "search#new", as: :new_search
+  get 'skills/search' => "skills#search", as: :new_search
 
   root 'statics#home'
 

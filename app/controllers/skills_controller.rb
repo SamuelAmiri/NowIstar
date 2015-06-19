@@ -1,4 +1,7 @@
 class SkillsController < ApplicationController
+  require 'pry'
+
+
   def index
     @skills = Skill.all
   end
@@ -29,15 +32,24 @@ class SkillsController < ApplicationController
   def destroy
   end
 
-  def search
-    @skills = Skill.search(skill: params[:search][:skill], location: params[:search][:location])
+  def search 
+
+    if params[:type ] == "subcategory"
+      @skills = Skill.where(subcategory_id: params[:id], zipcode: params[:location])
+      
+
+    elsif params[:type] == "category"
+      @skills = Category.search(id: params[:id], location: params[:search][:location])
+
+    # @skills = Skill.search(skill: params[:search][:skill], location: params[:search][:location])
+    end
   end
   
   def self.search(skill:, location:)
 
-    skills = Skill.where("name ILIKE ? OR description ILIKE ?", "%" + skill + "%", "%" + skill + "%") if skill.present?
-    skills = skills.near(location, 20) if location.present? && skill.present?
-    skills
+    @skills = Skill.where("name ILIKE ? OR description ILIKE ?", "%" + skill + "%", "%" + skill + "%") if skill.present?
+    @skills = skills.near(location, 20) if location.present? && skill.present?
+    @skills
 
   end
 
