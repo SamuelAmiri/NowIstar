@@ -13,6 +13,7 @@ class SkillsController < ApplicationController
 
   def new
     @skill = @user.skills.new
+    @catagories = Category.all
   end
 
   def create

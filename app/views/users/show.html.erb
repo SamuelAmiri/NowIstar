@@ -9,11 +9,11 @@
                     <h1><%= "#{current_user.fname} #{current_user.lname}" %></h1>
                         
                         <div id="">
-                            <h3>Address</h3><%= @user.full_address %>
+                            <h3>Address</h3><%= current_user.full_address %>
                         </div>
 
                         <div id="">
-                            <h3>Bio</h3><%= @user.bio %>
+                            <h3>Bio</h3><%= current_user.bio %>
                         </div>
 
                         <div>
