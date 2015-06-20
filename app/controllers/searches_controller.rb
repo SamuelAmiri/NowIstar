@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
 		if params[:type] == "subcategory"
       		skills = Skill.where(subcategory_id: params[:id])
       		location = (params[:location])
-      		@skills = skills.near(location, 20)
+      		@skills = skills.near(location, 30)
       		@skills
       		# @skills = skills.near(location, 20)
     	elsif params[:type] == "category"
@@ -13,8 +13,10 @@ class SearchesController < ApplicationController
 			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
 			@subcategories.each do |subcategory|
-				temp_skill = Skill.where(subcategory_id: subcategory.id, zipcode: params[:location])[0]
-					@skills << temp_skill unless temp_skill.nil? 
+				location = (params[:location])
+				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 30)[0]
+				@skills << temp_skills unless temp_skills.nil?
+				@skills 
 			end
 		end
 
