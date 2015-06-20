@@ -16,11 +16,14 @@ Rails.application.routes.draw do
 
   get 'skills/search' => "searches#search", as: :new_search
 
+  
+
   root 'statics#home'
 
   resources :users do
     resources :skills, except: :index
   end
+
 
   get 'skills' => "skills#index" 
 
