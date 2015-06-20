@@ -23,7 +23,7 @@ end
             render
         }
         format.json {
-            render json: @skills
+            render json: @skill
        	}
     end
   end
