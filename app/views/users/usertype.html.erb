@@ -1,0 +1,14 @@
+<h1>Welcome to NowIstar</h1>
+
+<h3>Are you a :</h3>
+
+<%= form_for :user, url: account_type_path, method: :put do |f| %>
+ %>
+  <%#= f.radio_button :servicer, 'Servicer', :checked => true %> 
+  <%#= label :servicer, 'Servicer' %>
+  <%#= f.radio_button :servicer, 'User', :checked => false %> 
+  <%#= label :servicer, 'User' %>
+  	<%= f.label "Servicer" %> <br>
+    <%= f.check_box :servicer %> <br>
+ <%= f.submit "Update new skill" %>
+<% end %>

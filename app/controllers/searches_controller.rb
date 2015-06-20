@@ -19,6 +19,7 @@ class SearchesController < ApplicationController
     ## Due to skills not being directed associated to categories, an empty array is
     ##  created and is shoveled skills that are filtered.
     	elsif params[:type] == "category"
+
 			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
 			@subcategories.each do |subcategory|
@@ -29,6 +30,7 @@ class SearchesController < ApplicationController
 			end
 		end
 
+<<<<<<< HEAD
 		respond_to do |format|
        		format.html {
             	render
@@ -37,6 +39,8 @@ class SearchesController < ApplicationController
             	render json: @skills
        		}
        	end
+=======
+>>>>>>> master
 
 	end
 

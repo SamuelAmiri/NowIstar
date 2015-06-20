@@ -15,11 +15,12 @@
                         <div id="">
                             <h3>Bio</h3><%= current_user.bio %>
                         </div>
-
+                        <br>
                         <div>
                             <%= link_to "Show all of your skills", user_skills_path(current_user) %><br>
                             <%= link_to "Post a new skill", new_user_skill_path(current_user) %><br>
                         </div>
+
 
                     <div class="col-md-9 skillattributes">
                         <table class="table table-bordered table-hover spacing-table">
@@ -28,8 +29,10 @@
                                     <th class="col-md-5">Service</th>
                                     <th class="col-md-1">Subcategory</th>
                                     <th class="col-md-1">Price</th>
-                                   <!--  <th class="col-md-1">Edit</th>
-                                    <th class="col-md-1">Delete</th> -->
+                                    <th class="col-md-1">Location</th>
+                                    <th class="col-md-5">Description</th>
+                                    <br>
+                                    <br>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,6 +41,8 @@
                                         <td><%=skill.title %></td>
                                         <td><%=skill.subcategory_id %></td>
                                         <td><%=skill.price %></td>
+                                        <td><%=skill.full_address %></td>
+                                        <td><%=skill.description %></td>
                                         <td><%= link_to "Edit", edit_user_skill_path(current_user, skill), class:"btn btn-info" %></td>
                                         <td><%= link_to 'Delete', user_skill_path(current_user, skill),
                                                   method: :delete,

@@ -6,8 +6,10 @@
 </div>
 
 <div>
-    <%= f.label :subcategory_id %>
-    <%= f.text_field :subcategory_id %>
+    <%= f.label :Skill_Category %>
+    <%= f.grouped_collection_select :subcategory_id,
+    Category.order(:name), :subcategories, :name,
+    :id, :name %>
 </div>
 
 <div>

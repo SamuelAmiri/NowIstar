@@ -24,12 +24,12 @@ Rails.application.routes.draw do
     resources :skills, except: :index
   end
 
-resources :users, :id => { :format => 'json' } do
-   resources :skills, :skill_id => { :format => 'json' }
- end
 
-  get 'skills' => "skills#index"
-  
+  get 'skills' => "skills#index" 
+
+  get 'users/:id/usertype' => "users#usertype", as: "account_type" 
+  patch 'users/:id/usertype' => "users#usertype"
+  put 'users/:id/usertype' => "users#usertype"
 
   resources :categories
   resources :subcategories
