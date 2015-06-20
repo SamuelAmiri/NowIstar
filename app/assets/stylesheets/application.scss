@@ -7,6 +7,19 @@ th {
     color: white;
     background-color: #3399FF;
 }
+.searchrow {
+    border-radius: 5px;
+}
+.navbar {
+    background-color: #3399FF;
+}
+
+.carousel-control {
+  &.left, &.right {
+    background-image: none;
+    @include reset-filter();
+    }
+}
 .pushdown {
 	height: 5vw;
 }
