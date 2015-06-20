@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :skills, except: :index
   end
 
+resources :users, :id => { :format => 'json' } do
+   resources :skills, :skill_id => { :format => 'json' }
+ end
+
   get 'skills' => "skills#index"
   
 

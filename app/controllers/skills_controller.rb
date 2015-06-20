@@ -13,7 +13,6 @@ class SkillsController < ApplicationController
 			render json: @skills
 		}
 	end
-end
   end
   
   def show
