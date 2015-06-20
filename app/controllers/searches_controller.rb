@@ -14,6 +14,7 @@ class SearchesController < ApplicationController
       		location = (params[:location])
       		@skills = skills.near(location, 30)
       		@skills
+    	end
 
     ## Due to skills not being directed associated to categories, an empty array is
     ##  created and is shoveled skills that are filtered.
@@ -27,6 +28,15 @@ class SearchesController < ApplicationController
 				@skills 
 			end
 		end
+
+		respond_to do |format|
+       		format.html {
+            	render
+        	}
+        	format.json {
+            	render json: @skills
+       		}
+       	end
 
 	end
 
