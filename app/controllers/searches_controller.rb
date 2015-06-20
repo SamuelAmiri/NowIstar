@@ -30,7 +30,6 @@ class SearchesController < ApplicationController
 			end
 		end
 
-<<<<<<< HEAD
 		respond_to do |format|
        		format.html {
             	render
@@ -39,8 +38,6 @@ class SearchesController < ApplicationController
             	render json: @skills
        		}
        	end
-=======
->>>>>>> master
 
 	end
 
