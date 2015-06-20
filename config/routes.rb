@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'sessions/new'
 
   get 'sessions/show'
@@ -15,13 +14,19 @@ Rails.application.routes.draw do
   
   get 'auth/logout' => 'sessions#destroy'
 
-  get 'search/new' => "search#new", as: :new_search
+  get 'skills/search' => "searches#search", as: :new_search
 
   root 'statics#home'
 
-  resources :users
-  resources :skills
-  
+  resources :users do
+    resources :skills, except: :index
+  end
+
+  get 'skills' => "skills#index" 
+
+  get 'users/:id/usertype' => "users#usertype", as: "account_type" 
+  patch 'users/:id/usertype' => "users#usertype"
+  put 'users/:id/usertype' => "users#usertype"
 
   resources :categories
   resources :subcategories

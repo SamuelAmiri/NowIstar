@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   ## DISPLAYS A SINGLE USER
   def show
+    @skills = current_user.skills
+  end
+
+  def servicer_edit
     @user = User.find(params[:id])
   end
 
@@ -34,13 +38,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.id == current_user.id
-      if @user.update_attributes(user_params)
-          redirect_to users_path
-      else
-          render :edit
+      if @user.servicer == 1
+        @user.servicer = true
+        if @user.update_attributes(user_params)
+            redirect_to user_path
+        else
+            render :edit
+        end
       end
     else
-        redirect_to users_path
+        redirect_to root_path
     end
   end
 
@@ -57,6 +64,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :image, :email, :provider, :phonenumber, :street_address, :city, :zipcode, :state, :bio, :password, :password_confirmation)
+    params.require(:user).permit(:fname, :lname, :image, :email, :provider, :phonenumber, :street_address, :city, :zipcode, :state, :bio, :password, :password_confirmation, :servicer)
   end
 end
