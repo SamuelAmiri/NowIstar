@@ -13,7 +13,21 @@ th {
 .navbar {
     background-color: #3399FF;
 }
+.navbar .nav > li > a {
+    background-color: #3399FF;
+    color: white;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #3399FF;
+    color: #FFFF00;
+}
 
+li {
+    color:white;
+}
+.carousel_slide {
+    margin: 0 auto;
+}
 .carousel-control {
   &.left, &.right {
     background-image: none;
