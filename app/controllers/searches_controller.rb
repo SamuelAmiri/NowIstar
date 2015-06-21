@@ -14,12 +14,10 @@ class SearchesController < ApplicationController
       		location = (params[:location])
       		@skills = skills.near(location, 30)
       		@skills
-    	end
 
     ## Due to skills not being directed associated to categories, an empty array is
     ##  created and is shoveled skills that are filtered.
     	elsif params[:type] == "category"
-
 			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
 			@subcategories.each do |subcategory|
