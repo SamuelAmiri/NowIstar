@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @skills = current_user.skills
   end
 
-  def servicer_edit
+  def usertype
     @user = User.find(params[:id])
   end
 
@@ -38,14 +38,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.id == current_user.id
-      if @user.servicer == 1
-        @user.servicer = true
         if @user.update_attributes(user_params)
             redirect_to user_path
         else
             render :edit
         end
-      end
     else
         redirect_to root_path
     end
