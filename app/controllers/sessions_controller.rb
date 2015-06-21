@@ -16,17 +16,11 @@ class SessionsController < ApplicationController
 	   rescue
 	    flash[:warning] = "There was an error while trying to authenticate you..."
 	   end
-	   	if current_user.servicer == true
-		  	if current_user.zipcode != nil
-		  		redirect_to user_path(@user)
-		  	else
-		  		redirect_to new_user_path
-		  	end
-		elsif current_user.servicer == false
-			redirect_to new_user_path
-		else
-			redirect_to account_type_path(@user)
-		end
+	   if @user.servicer == nil
+		redirect_to edit_user_path(current_user)
+	   else
+	   	redirect_to user_path(current_user)
+	   end
 	end
 
 	def destroy

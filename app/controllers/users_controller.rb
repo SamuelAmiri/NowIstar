@@ -9,10 +9,6 @@ class UsersController < ApplicationController
     @skills = current_user.skills
   end
 
-  def usertype
-    @user = User.find(params[:id])
-  end
-
   ## USER PUTS IN THEIR INFORMATION
   def new
     @user = User.new
@@ -31,7 +27,12 @@ class UsersController < ApplicationController
 
   ## EDITS USER
   def edit
-   @user = User.find(params[:id]) 
+   @user = User.find(params[:id])
+    if @user.servicer == nil
+      render 'usertype'
+    else
+      render :edit 
+    end 
   end
 
   ## UPDATES USER PARAMS AND REDIRECTS TO THE INDEX. PREVENTS PEOPLE FROM ALTERING OTHER'S PROFILES.
@@ -39,7 +40,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.id == current_user.id
         if @user.update_attributes(user_params)
+          if @user.servicer == true && @user.phonenumber == nil
+            render :edit
+          else
             redirect_to user_path
+          end
         else
             render :edit
         end
@@ -61,6 +66,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :image, :email, :provider, :phonenumber, :street_address, :city, :zipcode, :state, :bio, :password, :password_confirmation, :servicer)
+    params.require(:user).permit(:fname, :lname, :image, :servicer, :email, :provider, :phonenumber, :street_address, :city, :zipcode, :state, :bio, :password, :password_confirmation)
   end
 end

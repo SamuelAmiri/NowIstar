@@ -2,21 +2,12 @@
 
 <h3>Are you a :</h3>
 
-<%= form_tag :user, url: "account_type_path", method: :patch do %>
-	<%#= f.radio_button :servicer, 'servicer' %> 
-	<%#= label :servicer, 'Servicer', value: "true" %>
-	<%#= f.radio_button :servicer, 'servicer' %>
-	<%#= label :servicer, 'User' %><br><br>
+<%= form_tag user_path, method: :patch do %>
 
-	<%#= f.label "Servicer" %> 
-	<%#= f.check_box :servicer,{},true %> <br>
-	<%#= f.label "User" %>
-	<%#= f.check_box :servicer,{},false %> <br>
- 	<%= check_box_tag :servicer, 0%>
+ 	<%= check_box_tag "user[servicer]", 0 %>
  	User 
- 	 <%= check_box_tag :servicer, 1%>
+ 	 <%= check_box_tag "user[servicer]", 1 %>
  	Servicer 
- 	<%#= f.submit "Update new skill" %>
  	<%= submit_tag "Update Users" %>
 
 <% end %>
