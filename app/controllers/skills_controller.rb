@@ -4,10 +4,26 @@ class SkillsController < ApplicationController
 
   def index
     @skills = Skill.all
+	respond_to do |format|
+		format.html {
+			render
+		}
+		format.json {
+			render json: @skills
+		}
+	end
   end
 
   def show
     @skill = @user.skills.find(params[:id])
+    respond_to do |format|
+       	format.html {
+            render
+        }
+        format.json {
+            render json: @skill
+       	}
+    end
   end
 
   def new
