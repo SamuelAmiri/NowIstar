@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 BODY {
 	background-color: white;
 }
@@ -12,6 +13,8 @@ th {
 }
 .navbar {
     background-color: #3399FF;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
 }
 .navbar .nav > li > a {
     background-color: #3399FF;
@@ -22,9 +25,6 @@ th {
     color: #FFFF00;
 }
 
-li {
-    color:white;
-}
 .carousel_slide {
     margin: 0 auto;
 }
