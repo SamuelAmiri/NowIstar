@@ -13,18 +13,21 @@ th {
 }
 .navbar {
     background-color: #3399FF;
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-size: 20px;
+    color: white;
 }
 .navbar .nav > li > a {
-    background-color: #3399FF;
     color: white;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     background-color: #3399FF;
     color: #FFFF00;
 }
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
 
+}
 .carousel_slide {
     margin: 0 auto;
 }
