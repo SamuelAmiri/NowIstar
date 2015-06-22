@@ -27,9 +27,10 @@ Rails.application.routes.draw do
 
   get 'skills' => "skills#index" 
 
-  get 'users/:id/usertype' => "users#usertype", as: "account_type" 
-  patch 'users/:id/usertype' => "users#usertype"
-  put 'users/:id/usertype' => "users#usertype"
+  #get 'users/:id/usertype' => "users#usertype", as: "account_type" 
+  #patch 'users/:id/usertype' => "users#update"
+  #put 'users/:id/usertype' => "users#update"
+  
 
   resources :categories
   resources :subcategories

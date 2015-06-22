@@ -2,18 +2,19 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nowistar</title>
+  <title>Skill search - Nowistar</title>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCcDzoLjzUw8Rc9Nbe88x2Gnx6agnwYUgw"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-static-top">
+<nav class="navbar navbar-inverse navbar-static-top navbar-default">
     <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
+        <li><a href="/">NowiStar</a></li>
         <% if current_user %>
         <li><a href="/users/<%= current_user.id %>">Profile</a></li>
         <li><a href="/users/<%= current_user.id %>/edit">Edit Profile</a></li>
