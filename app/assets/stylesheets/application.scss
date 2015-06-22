@@ -13,18 +13,21 @@ th {
 }
 .navbar {
     background-color: #3399FF;
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-size: 20px;
+    color: white;
 }
 .navbar .nav > li > a {
-    background-color: #3399FF;
     color: white;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     background-color: #3399FF;
     color: #FFFF00;
 }
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
 
+}
 .carousel_slide {
     margin: 0 auto;
 }
@@ -64,7 +67,9 @@ th {
   margin-bottom: 15px;
   border: 2px solid black;
 }
-
+.dropdown {
+    
+}
 .dropdown-submenu {
     position: relative;
 }
@@ -111,4 +116,10 @@ th {
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+.btn-primary {
+    background-color: #3399FF;
+}
+.btn-primary:hover {
+    background-color: #FF0099;
 }
