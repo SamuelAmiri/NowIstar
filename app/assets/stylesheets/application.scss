@@ -67,7 +67,9 @@ th {
   margin-bottom: 15px;
   border: 2px solid black;
 }
-
+.dropdown {
+    
+}
 .dropdown-submenu {
     position: relative;
 }
@@ -114,4 +116,10 @@ th {
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+.btn-primary {
+    background-color: #3399FF;
+}
+.btn-primary:hover {
+    background-color: #FF0099;
 }
