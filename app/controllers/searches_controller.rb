@@ -27,7 +27,7 @@ class SearchesController < ApplicationController
 				@skills 
 			end
 		end
-
+	## Defines rendering for both html and JSON.
 		respond_to do |format|
        		format.html {
             	render
