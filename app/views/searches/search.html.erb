@@ -6,15 +6,17 @@
 				<th class="col-md-5">Service</th>
 				<th class="col-md-1">Subcategory</th>
 				<th class="col-md-1">Price</th>
+				<th class="col-md-1">Zipcode</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td><%=skill.user %></td>
+					<td><%=skill.user.fname %></td>
 					<td><%=skill.title %></td>
 					<td><%=skill.subcategory_id %></td>
 					<td><%=skill.price %></td>
+					<td><%=skill.zipcode %></td>
 				</tr>
 			<% end %>
 		</tbody>

@@ -36,7 +36,7 @@ class SkillsController < ApplicationController
     @skill.user = current_user
       if @skill.save
         flash[:success] = "Your Skill has been saved"
-        redirect_to user_skill_path(current_user, @skill)
+        redirect_to user_path
       else
         render :new
       end
@@ -51,7 +51,7 @@ class SkillsController < ApplicationController
 
     if @skill.update(skill_params)
       flash[:success] = "Your Skill has been updated"
-      redirect_to user_path
+      redirect_to user_path(current_user)
     else
       render :edit
     end

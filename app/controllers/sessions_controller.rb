@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
 	    @auth = current_user
 	end
 
+
+	## CREATES USER AND LOGIN FUNCTION FOR WEBSITE
 	def create
 	   begin
 	    @user = User.from_omniauth(request.env['omniauth.auth'])
