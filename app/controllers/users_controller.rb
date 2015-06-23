@@ -9,10 +9,6 @@ class UsersController < ApplicationController
     @skills = current_user.skills
   end
 
-  def servicer_edit
-    @user = User.find(params[:id])
-  end
-
   ## USER PUTS IN THEIR INFORMATION
   def new
     @user = User.new
@@ -29,23 +25,30 @@ class UsersController < ApplicationController
       end
   end
 
-  ## EDITS USER
+  ## EDITS USER DEPENDING ON USER TYPE
   def edit
-   @user = User.find(params[:id]) 
+   @user = User.find(params[:id])
+    if @user.servicer == nil
+      render 'usertype'
+    else
+      render :edit 
+    end 
   end
 
   ## UPDATES USER PARAMS AND REDIRECTS TO THE INDEX. PREVENTS PEOPLE FROM ALTERING OTHER'S PROFILES.
+  ## CREATED CONDITIONS FOR USERS AND TYPES FOR SIGN UP.
   def update
     @user = User.find(params[:id])
     if @user.id == current_user.id
-      if @user.servicer == 1
-        @user.servicer = true
         if @user.update_attributes(user_params)
+          if @user.servicer == true && @user.phonenumber == nil
+            render :edit
+          else
             redirect_to user_path
+          end
         else
             render :edit
         end
-      end
     else
         redirect_to root_path
     end
@@ -62,8 +65,8 @@ class UsersController < ApplicationController
 
 
 private
-
+  ## Defining the paraments for the users
   def user_params
-    params.require(:user).permit(:fname, :lname, :image, :email, :provider, :phonenumber, :street_address, :city, :zipcode, :state, :bio, :password, :password_confirmation, :servicer)
+    params.require(:user).permit(:fname, :lname, :image, :servicer, :email, :provider, :phonenumber, :street_address, :city, :zipcode, :state, :bio, :password, :password_confirmation)
   end
 end

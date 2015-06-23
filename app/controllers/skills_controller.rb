@@ -1,13 +1,31 @@
 class SkillsController < ApplicationController
   require 'pry'
+  ## Private actions that will be loaded prior to all others, except Index and Search
+
   before_filter :load_user, except: [:index, :search]
 
   def index
     @skills = Skill.all
+	respond_to do |format|
+  		format.html {
+  			render
+  		}
+  		format.json {
+  			render json: @skills
+  		}
+  	end
   end
 
   def show
     @skill = @user.skills.find(params[:id])
+    respond_to do |format|
+       	format.html {
+            render
+        }
+        format.json {
+            render json: @skill
+       	}
+    end
   end
 
   def new
@@ -20,7 +38,7 @@ class SkillsController < ApplicationController
     @skill.user = current_user
       if @skill.save
         flash[:success] = "Your Skill has been saved"
-        redirect_to user_skill_path(current_user, @skill)
+        redirect_to user_path(current_user)
       else
         render :new
       end
@@ -35,7 +53,7 @@ class SkillsController < ApplicationController
 
     if @skill.update(skill_params)
       flash[:success] = "Your Skill has been updated"
-      redirect_to user_path
+      redirect_to user_path(current_user)
     else
       render :edit
     end

@@ -16,17 +16,20 @@ Rails.application.routes.draw do
 
   get 'skills/search' => "searches#search", as: :new_search
 
+  
+
   root 'statics#home'
 
   resources :users do
     resources :skills, except: :index
   end
 
-  get 'skills' => "skills#index" 
+  namespace :api do
+     resources :skills, only: [:index, :show]
+  end
 
-  get 'users/:id/usertype' => "users#usertype", as: "account_type" 
-  patch 'users/:id/usertype' => "users#usertype"
-  put 'users/:id/usertype' => "users#usertype"
+
+  get 'skills' => "skills#index" 
 
   resources :categories
   resources :subcategories

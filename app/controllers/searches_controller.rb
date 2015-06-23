@@ -9,6 +9,7 @@ class SearchesController < ApplicationController
 	## :location refers to the input in the text field in the search partial.
 	## .near is a method that is defined by the geocoder gem, giving the ability
 	## to search via proximity to the location inputted into the search field.
+	
 		if params[:type] == "subcategory"
       		skills = Skill.where(subcategory_id: params[:id])
       		location = (params[:location])
@@ -18,7 +19,6 @@ class SearchesController < ApplicationController
     ## Due to skills not being directed associated to categories, an empty array is
     ##  created and is shoveled skills that are filtered.
     	elsif params[:type] == "category"
-
 			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
 			@subcategories.each do |subcategory|
@@ -28,7 +28,15 @@ class SearchesController < ApplicationController
 				@skills 
 			end
 		end
-
+	## Defines rendering for both html and JSON.
+		respond_to do |format|
+       		format.html {
+            	render
+        	}
+        	format.json {
+            	render json: @skills
+       		}
+       	end
 
 	end
 
