@@ -24,6 +24,11 @@ Rails.application.routes.draw do
     resources :skills, except: :index
   end
 
+  namespace :api do
+     resources :skills, only: [:index, :show]
+  end
+
+
   get 'skills' => "skills#index" 
 
   resources :categories
