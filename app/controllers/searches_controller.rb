@@ -9,6 +9,7 @@ class SearchesController < ApplicationController
 	## :location refers to the input in the text field in the search partial.
 	## .near is a method that is defined by the geocoder gem, giving the ability
 	## to search via proximity to the location inputted into the search field.
+	
 		if params[:type] == "subcategory"
       		skills = Skill.where(subcategory_id: params[:id])
       		location = (params[:location])
