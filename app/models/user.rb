@@ -3,10 +3,6 @@ class User < ActiveRecord::Base
 	#has_attached_file :image, styles: {small: "50x50", med: "100x100", large: "200x200" }, :default_url => ""
 	#validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-	def full_address
-		[street_address, city, state, zipcode].join(', ')
-	end
-
 	class << self
 	  def from_omniauth(auth_hash)
 	    user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
