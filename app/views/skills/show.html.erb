@@ -1,8 +1,25 @@
-		
+<div class="col-md-9 skillattributes">
+	<table class="table table-bordered table-hover spacing-table">
+		<thead>
+			<tr>
+				<th class="col-md-2">User</th>
+				<th class="col-md-5">Service</th>
+				<th class="col-md-1">Subcategory</th>
+				<th class="col-md-1">Price</th>
+				<th class="col-md-1">Contact Information</th>
+			</tr>
+		</thead>
 	<tr>
 		<td class="searchrow"><%=@skill.user.fname %></td>
 		<td class="searchrow"><%=@skill.title %></td>
 		<td class="searchrow"><%=@skill.subcategory_id %></td>
 		<td class="searchrow"><%=@skill.price %></td>
+		<% if current_user %>
+			<td><%= @skill.user.phonenumber%></td>
+		<% else %>
+			<td><a href="/auth/linkedin">Please log in to contact this user</a></td>
+		<% end %>
+
+
 	</tr>
 

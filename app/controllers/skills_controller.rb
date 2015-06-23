@@ -1,5 +1,7 @@
 class SkillsController < ApplicationController
   require 'pry'
+  ## Private actions that will be loaded prior to all others, except Index and Search
+
   before_filter :load_user, except: [:index, :search]
 
   def index
