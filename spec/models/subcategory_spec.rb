@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Subcategory, type: :model do
-	before do
-  		@subcategory = Factory(:subcategory)
-	end
+
+
 	  it "Creates a new subcategory" do
 	    subcategory = Subcategory.new(name: "Xyz Abc", category_id: 1)
 	    expect(subcategory).to be_valid
@@ -12,9 +11,13 @@ RSpec.describe Subcategory, type: :model do
 	    subcategory = Subcategory.new(name: nil, category_id: 1)
 	    expect(subcategory).to be_invalid
 	  end
+
 	  it "Requires subategory name to be unique" do
-	  	subcategory = Subcategory.new(name: "Dance", category_id: 1)
-	  	expect(subcategory).to be_invalid
+	  	category = Category.create(name: "Art & Creative")
+	  	subcategory1 = Subcategory.create(name: "Dance", category_id: category.id)
+	  	subcategory2 = Subcategory.create(name: "Dance", category_id: category.id)
+	  	expect(subcategory1).to be_valid
+	  	expect(subcategory2).to be_invalid
 	  end
 
 end
