@@ -14,7 +14,7 @@ class SubcategoriesController < ApplicationController
 
   # GET /subcategories/new
   def new
-    @subcategory = Subcategory.new
+    @subcategory = Subcategory.new(subcategory_params)
   end
 
   # GET /subcategories/1/edit
