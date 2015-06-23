@@ -12,11 +12,11 @@
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td><%=skill.user.fname %></td>
-					<td><%=skill.title %></td>
-					<td><%=skill.subcategory_id %></td>
-					<td><%=skill.price %></td>
-					<td><%=skill.zipcode %></td>
+					<td class="searchrow"><%=skill.user %></td>
+					<td class="searchrow"><%=skill.title %></td>
+					<td class="searchrow"><%=skill.subcategory_id %></td>
+					<td class="searchrow"><%=skill.price %></td>
+
 				</tr>
 			<% end %>
 		</tbody>
