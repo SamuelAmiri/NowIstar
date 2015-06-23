@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618204526) do
+ActiveRecord::Schema.define(version: 20150623001202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,10 +59,6 @@ ActiveRecord::Schema.define(version: 20150618204526) do
     t.string   "password_digest"
     t.boolean  "servicer"
     t.integer  "phonenumber"
-    t.string   "street_address"
-    t.string   "city"
-    t.integer  "zipcode"
-    t.string   "state"
     t.text     "bio"
     t.string   "provider",           null: false
     t.string   "uid",                null: false
@@ -72,8 +68,6 @@ ActiveRecord::Schema.define(version: 20150618204526) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
   end
 
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
