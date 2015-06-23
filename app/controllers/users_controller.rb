@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       end
   end
 
-  ## EDITS USER
+  ## EDITS USER DEPENDING ON USER TYPE
   def edit
    @user = User.find(params[:id])
     if @user.servicer == nil
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   end
 
   ## UPDATES USER PARAMS AND REDIRECTS TO THE INDEX. PREVENTS PEOPLE FROM ALTERING OTHER'S PROFILES.
+  ## CREATED CONDITIONS FOR USERS AND TYPES FOR SIGN UP.
   def update
     @user = User.find(params[:id])
     if @user.id == current_user.id
