@@ -16,9 +16,11 @@ function initialize_my_map() {
     // Bail out if there's not an address map on the page
     if(!el) return
 
-    // Get the page's marker data from the JSON API
-    var url = window.location.origin + window.location.pathname + ".json"
 
+    // Get the page's marker data from the JSON API
+    var url = window.location.origin + window.location.pathname + ".json" + window.location.search 
+    console.log (window.location.origin)
+    console.log (window.location.pathname)
     // Ajax the data URL (this retrieves the contents of that JSON url above)
     $.get(url, function(results){
 
