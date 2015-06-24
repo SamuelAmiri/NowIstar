@@ -40,24 +40,37 @@ function initialize_my_map() {
 
         // Bounds are cool because they center our map for us
         var bounds = new google.maps.LatLngBounds()
-		var infowindow = new google.maps.InfoWindow();
+		var infowindow = new google.maps.InfoWindow({
+        content:"Hello World!"
+        });
+        
+
 		var markers = []
         
                 
 		for (i = 0; i < results.length; i++) {
 			var markerPosition = new google.maps.LatLng(results[i].latitude, results[i].longitude)
-			var marker = new google.maps.Marker({
-                    position: markerPosition
+            var marker = new google.maps.Marker({
+                    position: markerPosition,
+                    animation: google.maps.Animation.DROP
                     
                 	})
+            marker.content = '<h5>' + results[i].title + '</h5><hr><h3>$' + results[i].price + '</h3>';
+            var infoWindow = new google.maps.InfoWindow();
+            google.maps.event.addListener(marker, 'click', function () {
+                                infoWindow.setContent(this.content);
+                                infoWindow.open(this.getMap(), this);
+                            });
 			marker.setMap(map)
 			bounds.extend(markerPosition);
 			map.fitBounds(bounds);
            	markers.push[marker]
             console.log(marker)
-
         }
-           (marker, i);
+        (marker, i);
 
     })
 }
+    google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map, marker);
+    });
