@@ -61,7 +61,7 @@ a:hover {
 }
 .carousel-control {
   &.left, &.right {
-    background-image: none;
+    background: transparent;
     @include reset-filter();
     }
 }

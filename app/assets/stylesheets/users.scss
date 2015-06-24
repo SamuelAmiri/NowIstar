@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#image {
+  position: absolute;
+  left: 0
+  
+}
+h1{
+    z-index: 100;
+    position: absolute;
+    height: 60px;
+    width: 740px;
+}
+
 .jumbotron {
 //  position: absolute;
   margin: 0 auto;
@@ -16,11 +28,6 @@
   width: 100%;
   text-align: center;
   z-index: 1;
-    ///height: 100px;
-    //background: -webkit-radial-gradient(gray, transparent); /* For Safari 5.1 to 6.0 */
-    //background: -o-radial-gradient(gray, transparent); /* For Opera 11.6 to 12.0 */
-    //background: -moz-radial-gradient(gray, transparent); /* For Fx 3.6 to 15 */
-    //background: radial-gradient(gray, transparent); /* Standard syntax (must be last) */
 }
 
 #item {
