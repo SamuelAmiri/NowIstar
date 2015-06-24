@@ -3,7 +3,10 @@ class SearchesController < ApplicationController
 	## Good for testing.
 	require 'pry'
 
+	helper_method :sort_column, :sort_direction
+
 	def search
+		@skills = Skill.order(sort_column + ' ' + sort_direction)
 	## :type refers to the param in a hidden text input field in the search partial.
 	## :id refers to the param in a hidden text input field in the search partial.
 	## :location refers to the input in the text field in the search partial.
@@ -13,19 +16,25 @@ class SearchesController < ApplicationController
 		if params[:type] == "subcategory"
       		skills = Skill.where(subcategory_id: params[:id])
       		location = (params[:location])
-      		@skills = skills.near(location, 30)
+      		@skills = skills.near(location, 40)
       		@skills
 
     ## Due to skills not being directed associated to categories, an empty array is
-    ##  created and is shoveled skills that are filtered.
+    ## created and is shoveled skills that are filtered. temp_skills.nil? prevents
+    ## lack of results from erroring out.
     	elsif params[:type] == "category"
 			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
 			@subcategories.each do |subcategory|
 				location = (params[:location])
-				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 30)[0]
-				@skills << temp_skills unless temp_skills.nil?
+				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 40)
+				unless temp_skills.nil?
+					temp_skills.each do |temp_skill|
+						@skills << temp_skill
+					end
+				end
 				@skills 
+				
 			end
 		end
 	## Defines rendering for both html and JSON.
@@ -44,4 +53,14 @@ class SearchesController < ApplicationController
 	
 	def results
 	end
+
+private
+
+  def sort_column  
+  Skill.column_names.include?(params[:sort]) ? params[:sort] : "name"  
+end  
+  
+  def sort_direction  
+  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"  
+end
 end
