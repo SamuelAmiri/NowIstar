@@ -2,11 +2,11 @@
 	<table class="table table-bordered table-hover spacing-table">
 		<thead>
 			<tr>
-				<th class="col-md-2">User</th>
-				<th class="col-md-5">Service</th>
+				<th class="col-md-2"><%= sortable "user", "User" %></th>
+				<th class="col-md-5"><%= sortable "title", "Service" %></th>
 				<th class="col-md-1">Subcategory</th>
-				<th class="col-md-1">Price</th>
-				<th class="col-md-1">Zipcode</th>
+				<th class="col-md-1"><%= sortable "price", "Price" %></th>
+				<th class="col-md-1"><%= sortable "zipcode", "Zipcode" %></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -14,8 +14,9 @@
 				<tr>
 					<td class="searchrow"><%=skill.user %></td>
 					<td class="searchrow"><%=skill.title %></td>
-					<td class="searchrow"><%=skill.subcategory_id %></td>
-					<td class="searchrow"><%=skill.price %></td>
+					<td class="searchrow"><%=skill.subcategory.name %></td>
+					<td class="searchrow">$<%=skill.price %></td>
+					<td class="searchrow"><%=skill.zipcode %></td>
 
 				</tr>
 			<% end %>
@@ -27,7 +28,3 @@
 <div class="col-md-4 googlemap">
 	<div id="googleMap"></div>
 </div>
-
-<%= @skills %>
-
-<%= @subcategories.inspect %>
