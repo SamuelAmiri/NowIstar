@@ -1,14 +1,6 @@
-
-<!-- Renders search partial -->
-
-<div class="background">
-	<div class="transbox">
-		<div><%= render 'search' %><div>
-	</div>
-</div>
-
 <section class="block">
 <div id="myCarousel" class="carousel_slide" data-ride="carousel">
+
 	  <!-- Indicators -->
 	  <ol class="carousel-indicators">
 	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -20,7 +12,17 @@
 
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner" role="listbox">
-	    <div class="item active">
+	  	<div id="carousel-overlay" class="container-well">
+	  		<div class="jumbotron">
+	  			<div class="textcontrast">
+	  				<!-- Renders search partial -->
+	  				<div class="thesearch">
+	  					<h1>Find someone with a skill</h1><br>
+	  					<%= render 'search' %></div>
+	  			</div>
+	  		</div>
+	  	</div>
+	      <div class="item active">
 	    	<img src="/assets/tutor.jpg" alt="Tutor">
 	      		<div class="carousel-caption">
 	        		<h3>You choose the time, place and person!</h3>
