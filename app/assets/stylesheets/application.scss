@@ -92,11 +92,7 @@ th {
   border: 2px solid black;
 }
 
-div.background
-{
-}
-div.transbox
-{
+div.transbox {
   margin: 50px;
   background-color: #ffffff;
   border: 1px solid black;
@@ -107,9 +103,7 @@ div.transbox p {
   margin: 10px;
   color: #000000;
 }
-.dropdown {
-    
-}
+
 .dropdown-submenu {
     position: relative;
 }
@@ -123,7 +117,6 @@ div.transbox p {
     -moz-border-radius: 0 6px 6px;
     border-radius: 0 6px 6px 6px;
 }
-
 .dropdown-submenu:hover>.dropdown-menu {
     display: block;
 }

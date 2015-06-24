@@ -6,15 +6,7 @@
 .jumbotron {
 //  position: absolute;
   margin: 0 auto;
-  z-index: 999;
-}
-#ownerButton {
-  float: left;
-  margin-left: 200px;
-}
-#pilotButton {
-  float: right;
-  margin-right: 100px;
+  z-index: 1;
 }
 .jumbotron .textcontrast {
   color: whitesmoke;
@@ -23,11 +15,14 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  // min-height: 370px;
-  background-color: transparent;
-  z-index: 3000000;
-  margin-top: 30%;
+  z-index: 1;
+    ///height: 100px;
+    //background: -webkit-radial-gradient(gray, transparent); /* For Safari 5.1 to 6.0 */
+    //background: -o-radial-gradient(gray, transparent); /* For Opera 11.6 to 12.0 */
+    //background: -moz-radial-gradient(gray, transparent); /* For Fx 3.6 to 15 */
+    //background: radial-gradient(gray, transparent); /* Standard syntax (must be last) */
 }
+
 #item {
   position: relative;
 }
