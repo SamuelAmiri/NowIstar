@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
 		if params[:type] == "subcategory"
       		skills = Skill.where(subcategory_id: params[:id])
       		location = (params[:location])
-      		@skills = skills.near(location, 30)
+      		@skills = skills.near(location, 40)
       		@skills
 
     ## Due to skills not being directed associated to categories, an empty array is
@@ -21,11 +21,13 @@ class SearchesController < ApplicationController
     	elsif params[:type] == "category"
 			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
-			@subcategories.each do |subcategory|
+			@subcategories.each_with_index do |subcategory, i|
 				location = (params[:location])
-				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 30)[0]
+				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 40)[i]
 				@skills << temp_skills unless temp_skills.nil?
+				i += 1
 				@skills 
+				
 			end
 		end
 	## Defines rendering for both html and JSON.
