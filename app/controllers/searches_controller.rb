@@ -20,12 +20,16 @@ class SearchesController < ApplicationController
     ##  created and is shoveled skills that are filtered.
     	elsif params[:type] == "category"
 			@subcategories = Subcategory.where(category_id: params[:id])
+
 			@skills = []
-			@subcategories.each_with_index do |subcategory, i|
+			@subcategories.each do |subcategory|
 				location = (params[:location])
-				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 40)[i]
-				@skills << temp_skills unless temp_skills.nil?
-				i += 1
+				temp_skills = Skill.where(subcategory_id: subcategory.id).near(location, 40)
+				unless temp_skills.nil?
+					temp_skills.each do |temp_skill|
+						@skills << temp_skill
+					end
+				end
 				@skills 
 				
 			end
