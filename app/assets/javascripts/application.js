@@ -32,7 +32,7 @@ function initialize_my_map() {
 
     	// Create a map
         var mapProps = {
-        	zoom: 10,
+        	zoom: 15,
       		center: new google.maps.LatLng(33.92, -118.25),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }

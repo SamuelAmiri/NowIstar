@@ -8,6 +8,7 @@
 Category.destroy_all
 Subcategory.destroy_all
 Skill.destroy_all
+User.destroy_all
 
 
 categories = Category.create([
@@ -123,12 +124,17 @@ subcategories = Subcategory.create([
     {category_id: 17 , name: 'Transportation' }
 	])
 
+users = User.create([
+	{fname: "Yo", lname: "Wakita", image: "http://graph.facebook.com/10205208111775760/picture", email: "wakita@gmail.com", servicer: true, provider: "facebook", uid: "10205208111775760"}
+	])
+	
+
 skills = Skill.create([
 	{user_id: 1 , subcategory_id: 4, price: 40.00, description: "" , image: "" , title: "One on One Photography Lessons" , address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
 	{user_id: 1 , subcategory_id: 4, price: 50.00, description: "" , image: "" , title: "Small Group Landscape Photography Lessons" ,address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
-	{user_id: 3 , subcategory_id: 4, price: 30.00, description: "" , image: "" , title: "Group Lessons at City Hall", address: "1685 Main St" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.011657 , latitude: -118.491674 },
-	{user_id: 2 , subcategory_id: 4, price: 60.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
-	{user_id: 2 , subcategory_id: 4, price: 100.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 }
+	{user_id: 1 , subcategory_id: 4, price: 30.00, description: "" , image: "" , title: "Group Lessons at City Hall", address: "1685 Main St" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.011657 , latitude: -118.491674 },
+	{user_id: 1 , subcategory_id: 4, price: 60.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
+	{user_id: 1 , subcategory_id: 4, price: 100.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 }
 	])
 
 
