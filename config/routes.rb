@@ -1,35 +1,27 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
-  get 'sessions/show'
-
-  get 'sessions/create'
-
   delete '/logout', to: 'sessions#destroy'
 
   get "/auth/:provider/callback" => "sessions#create" 
-
-  get 'sessions/show'
   
   get 'auth/logout' => 'sessions#destroy'
 
   get 'skills/search' => "searches#search", as: :new_search
-
-  
 
   root 'statics#home'
 
   resources :users do
     resources :skills, except: :index
   end
-
+  
+  get 'skills' => "skills#index" 
+  
   namespace :api do
      resources :skills, only: [:index, :show]
   end
 
-
-  get 'skills' => "skills#index" 
+  resources :charges
+  
 
   resources :categories
   resources :subcategories

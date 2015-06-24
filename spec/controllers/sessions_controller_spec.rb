@@ -1,7 +1,7 @@
 # sessions_controller_spec.rb
 require 'spec_helper'
  
-describe SessionsController do
+RSpec.describe SessionsController do
  
   before do
     request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:linkedin]
@@ -16,14 +16,14 @@ describe SessionsController do
     end
  
     it "should successfully create a session" do
-      session[:user_id].should be_nil
+       expect(session[:user_id]).to be_nil
       post :create, provider: :linkedin
-      session[:user_id].should_not be_nil
+      expect(session[:user_id]).not_to be_nil
     end
  
     it "should redirect the user to the User choice url" do
       post :create, provider: :linkedin
-      response.should redirect_to edit_user_url(session[:user_id])
+      expect(response).to redirect_to edit_user_url(session[:user_id])
     end
  
   end

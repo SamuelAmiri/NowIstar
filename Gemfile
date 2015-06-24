@@ -47,6 +47,10 @@ gem 'omniauth-linkedin'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-facebook'
 
+# Stripe API gem to add charge ability 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 
