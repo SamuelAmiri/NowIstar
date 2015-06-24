@@ -3,7 +3,10 @@ class SearchesController < ApplicationController
 	## Good for testing.
 	require 'pry'
 
+	helper_method :sort_column, :sort_direction
+
 	def search
+		@skills = Skill.order(sort_column + ' ' + sort_direction)
 	## :type refers to the param in a hidden text input field in the search partial.
 	## :id refers to the param in a hidden text input field in the search partial.
 	## :location refers to the input in the text field in the search partial.
@@ -17,10 +20,10 @@ class SearchesController < ApplicationController
       		@skills
 
     ## Due to skills not being directed associated to categories, an empty array is
-    ##  created and is shoveled skills that are filtered.
+    ## created and is shoveled skills that are filtered. temp_skills.nil? prevents
+    ## lack of results from erroring out.
     	elsif params[:type] == "category"
 			@subcategories = Subcategory.where(category_id: params[:id])
-
 			@skills = []
 			@subcategories.each do |subcategory|
 				location = (params[:location])
@@ -50,4 +53,14 @@ class SearchesController < ApplicationController
 	
 	def results
 	end
+
+private
+
+  def sort_column  
+  Skill.column_names.include?(params[:sort]) ? params[:sort] : "name"  
+end  
+  
+  def sort_direction  
+  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"  
+end
 end
