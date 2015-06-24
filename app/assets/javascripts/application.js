@@ -55,7 +55,7 @@ function initialize_my_map() {
                     animation: google.maps.Animation.DROP
                     
                 	})
-            marker.content = '<div>' + results[i].title + '</div>';
+            marker.content = '<h5>' + results[i].title + '</h5><hr><h3>$' + results[i].price + '</h3>';
             var infoWindow = new google.maps.InfoWindow();
             google.maps.event.addListener(marker, 'click', function () {
                                 infoWindow.setContent(this.content);
