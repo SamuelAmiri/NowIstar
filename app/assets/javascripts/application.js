@@ -47,7 +47,8 @@ function initialize_my_map() {
 		for (i = 0; i < results.length; i++) {
 			var markerPosition = new google.maps.LatLng(results[i].latitude, results[i].longitude)
 			var marker = new google.maps.Marker({
-                    position: markerPosition
+                    position: markerPosition,
+                    animation: google.maps.Animation.DROP
                     
                 	})
 			marker.setMap(map)
@@ -55,9 +56,8 @@ function initialize_my_map() {
 			map.fitBounds(bounds);
            	markers.push[marker]
             console.log(marker)
-
         }
-           (marker, i);
+        (marker, i);
 
     })
 }
