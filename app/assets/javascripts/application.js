@@ -49,6 +49,8 @@ function initialize_my_map() {
                     
                 	})
 			marker.setMap(map)
+			bounds.extend(markerPosition);
+			map.fitBounds(bounds);
            	markers.push[marker]
             console.log(marker)
 
