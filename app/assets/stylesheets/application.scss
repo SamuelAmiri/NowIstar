@@ -1,7 +1,23 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-BODY {
+body {
 	background-color: white;
 }
 th {
@@ -26,6 +42,10 @@ th {
 .logo {
     font-family: 'Pacifico', cursive;
     font-size: 50px;
+}
+.thesearch {  height:auto; 
+    margin:0 auto; 
+    width:60%; 
 }
 .carousel_slide {
     margin: 0 auto;
@@ -74,7 +94,6 @@ th {
 
 div.background
 {
-  background: #myCarousel;
 }
 div.transbox
 {
@@ -85,8 +104,7 @@ div.transbox
   filter:alpha(opacity=60); /* For IE8 and earlier */
 }
 div.transbox p {
-  margin: 10%;
-  font-weight: bold;
+  margin: 10px;
   color: #000000;
 }
 .dropdown {
