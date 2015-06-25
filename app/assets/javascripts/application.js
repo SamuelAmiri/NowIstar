@@ -28,14 +28,16 @@ function initialize_my_map() {
 
         // Wrap the data in an array if it's not one already
         if(!(results instanceof Array)) results = [results] 
-        console.log(results)
 
     	// Create a map
         var mapProps = {
-        	zoom: 17,
+        	zoom: 16,
+            maxZoom: 18,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(el, mapProps)
+
+        var oms = new OverlappingMarkerSpiderfier(map);
         // Bounds are cool because they center our map for us
         var bounds = new google.maps.LatLngBounds()
 		var infowindow = new google.maps.InfoWindow({
@@ -53,18 +55,19 @@ function initialize_my_map() {
                     
                 	})
             marker.content = '<h5>' + results[i].title + '</h5><hr><h3>$' + results[i].price + '</h3>';
-            var infoWindow = new google.maps.InfoWindow();
-            google.maps.event.addListener(marker, 'click', function () {
-                                infoWindow.setContent(this.content);
-                                infoWindow.open(this.getMap(), this);
-                            });
 			marker.setMap(map)
 			bounds.extend(markerPosition);
 			map.fitBounds(bounds);
            	markers.push(marker)
+            oms.addMarker(marker);
+            oms.addListener('click', function(marker, event) {
+                infowindow.setContent(marker.content);
+                infowindow.open(map, marker);
+                keepSpiderfied (true);
+            });
         }
         (marker, i);
-        var markerCluster = new MarkerClusterer(map, markers)
+        var markerCluster = new MarkerClusterer(map, markers, { zoomOnClick: true, maxZoom: 16, gridSize: 10 })
     })
 }
     
