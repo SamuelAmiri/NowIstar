@@ -36,11 +36,9 @@ function initialize_my_map() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(el, mapProps)
-
         // Bounds are cool because they center our map for us
         var bounds = new google.maps.LatLngBounds()
 		var infowindow = new google.maps.InfoWindow({
-        content:"Hello World!"
         });
         
 
@@ -63,13 +61,11 @@ function initialize_my_map() {
 			marker.setMap(map)
 			bounds.extend(markerPosition);
 			map.fitBounds(bounds);
-           	markers.push[marker]
-            console.log(marker)
+           	markers.push(marker)
         }
         (marker, i);
-
+        var markerCluster = new MarkerClusterer(map, markers)
     })
 }
-    google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map, marker);
-    });
+    
+    
