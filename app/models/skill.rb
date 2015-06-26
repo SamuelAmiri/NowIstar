@@ -2,6 +2,7 @@ class Skill < ActiveRecord::Base
 	require "json"
 	belongs_to :user
 	belongs_to :subcategory
+	has_many :orders
 	geocoded_by :full_address
 	after_validation :geocode
 

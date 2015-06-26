@@ -7,6 +7,7 @@
 				<th class="col-md-1">Subcategory</th>
 				<th class="col-md-1">Price</th>
 				<th class="col-md-1">Contact Information</th>
+				<th class="col-md-1">Hire Now</th>
 			</tr>
 		</thead>
 	<tr>
@@ -16,6 +17,7 @@
 		<td class="searchrow"><%=@skill.price %></td>
 		<% if current_user %>
 			<td><%= @skill.user.phonenumber%></td>
+			<td><%= link_to "Buy It Now", new_user_skill_charge_path(@user, @skill), class: "btn btn-primary", data: { no_turbolink: true } %>
 		<% else %>
 			<td><a href="/auth/linkedin">Please log in to contact this user</a></td>
 		<% end %>

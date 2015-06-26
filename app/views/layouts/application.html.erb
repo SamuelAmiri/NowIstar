@@ -10,7 +10,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "https://js.stripe.com/v2/", "application" %>
   <%= csrf_meta_tags %>
+  <%= tag :meta, :name => "stripe-key", :content => "pk_test_6pRNASCoBOKtIshFeQd4XMUh" %>
 
 </head>
 <body>
@@ -31,18 +33,16 @@
 </nav>
 
 
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+      <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      </div>
+    <% end %>
   <% end %>
-</div>
 
-<div class="container">
-  
 <%= yield %>
-</div>
 
 </body>
 </html>
