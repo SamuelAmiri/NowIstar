@@ -16,6 +16,8 @@ class ChargesController < ApplicationController
 		elsif current_user = @order.seller_id
 			@order.update_attributes(review_buyer: params[:review])
 			redirect_to sales_path
+		else
+			redirect_to root_path
 		end
 	end
 	
