@@ -11,17 +11,20 @@
   </tr>
 
   <% @orders.each do |order| %>
-    <tr>
-      <td class="center"><%= order.skill.title %></td>
-      <td class="center"><%= number_to_currency(order.skill.price) %></td>
-      <td class="center"><%= order.buyer.fname %></td>
-      <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
-      <% if current_user.id == order.seller_id %>  
-        <td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
-      
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add a Review</button>
-          <!-- Modal -->
-          <div id="myModal" class="modal fade" role="dialog">
+  <tr>
+    <td class="center"><%= order.id %></td>
+    <td class="center"><%= order.skill.title %></td>
+    <td class="center"><%= order.skill.id %></td>
+    <td class="center"><%= number_to_currency(order.skill.price) %></td>
+    <td class="center"><%= order.seller.fname %></td>
+
+    <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+    <% if current_user.id == order.seller_id %>  
+    <td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
+      <% if order.buyer_review == nil %>
+      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal<%=order.id%>">Add a Review</button>
+        <!-- Modal -->
+        <div id="modal<%=order.id %>" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -30,17 +33,49 @@
                 <h4 class="modal-title">Add a Review</h4>
                 <p>How was your experience with <%=order.buyer.fname %>?</p>
               </div>
-              <%= form_tag review_path, method: :patch do %>
+              <%= form_tag create_review_path, method: :post do %>
                 <%= text_area_tag :review, nil, rows: 10, placeholder: 'Add review here.', class: 'form-control' %>
+                <%= text_area_tag :order_id, order.id %>
                 <%= submit_tag "Submit Review",class: 'form-control btn-info' %>
                 <br>
               <% end %>
+            </div>
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close
+              </button>
+            </div>
+        </div>
+
+      <% elsif order.buyer_review != nil%>
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal<%=order.id %>">Edit Review</button>
+          <!-- Modal -->
+          <div id="modal<%=order.id %>" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Edit Review</h4>
+                  <p>How was your experience with <%=order.buyer.fname %>?</p>
+                </div>
+                <%= form_tag update_review_path, method: :patch do %>
+                  <%= text_area_tag :review, order.buyer_review.text, rows: 10, placeholder: order.buyer_review.text, class: 'form-control' %>
+                  <%= text_area_tag :order_id, order.id, class: 'will-hide' %>
+                  <%= submit_tag "Submit Edited Review",class: 'form-control btn-info' %>
+                  <br>
+                <% end %>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                </button>
             </div>
+            </div>
+            
+          </div>
+
       <% end %>
+    <% end %>
     </tr>
   <% end %>
 </table>

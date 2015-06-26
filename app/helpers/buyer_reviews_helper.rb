@@ -1,0 +1,2 @@
+module BuyerReviewsHelper
+end
