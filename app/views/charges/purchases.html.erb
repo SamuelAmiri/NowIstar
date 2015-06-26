@@ -12,11 +12,13 @@
 
   <% @orders.each do |order| %>
     <tr>
-      <td class="center"><%= image_tag order.listing.image.url(:thumb) %></td>
-      <td class="center"><%= order.skill.name %></td>
-      <td class="center"><%= number_to_currency(order.listing.price) %></td>
+      <td class="center"><%= order.skill.title %></td>
+      <td class="center"><%= number_to_currency(order.skill.price) %></td>
       <td class="center"><%= order.seller.fname %></td>
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+      <% if current_user %>
+        <td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
+      <% end %>
     </tr>
   <% end %>
 </table>
