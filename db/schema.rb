@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20150626172330) do
     t.integer  "skill_id"
     t.integer  "buyer_id"
     t.integer  "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "rating"
-    t.text     "review"
+    t.text     "review_buyer"
+    t.text     "review_seller"
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -77,11 +78,11 @@ ActiveRecord::Schema.define(version: 20150626172330) do
   create_table "skills", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subcategory_id"
-    t.decimal  "price"
+    t.decimal  "price",          precision: 6, scale: 2
     t.text     "description"
     t.string   "image"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "title"
     t.string   "address"
     t.string   "city"
