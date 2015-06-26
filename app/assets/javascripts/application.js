@@ -5,6 +5,7 @@
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .
+
 // The init function needs to run on load
 google.maps.event.addDomListener(window, 'load', initialize_my_map)
 google.maps.event.addDomListener(window, 'page:load', initialize_my_map)
@@ -72,5 +73,6 @@ function initialize_my_map() {
         var markerCluster = new MarkerClusterer(map, markers, { zoomOnClick: true, maxZoom: 16, gridSize: 10 })
     })
 }
-    
+
+
     
