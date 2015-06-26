@@ -198,13 +198,13 @@ end
 
 
 orders = Order.create([
-	{skill_id: 1 ,buyer_id: 2, seller_id: 1 },
-	{skill_id: 2 ,buyer_id: 1, seller_id: 2 },
 	{skill_id: 3 ,buyer_id: 2, seller_id: 1 },
+	{skill_id: 2 ,buyer_id: 1, seller_id: 2 },
+	{skill_id: 1 ,buyer_id: 2, seller_id: 1 },
 	{skill_id: 4 ,buyer_id: 1, seller_id: 2 },
-	{skill_id: 5 ,buyer_id: 3, seller_id: 1 },
-	{skill_id: 6 ,buyer_id: 1, seller_id: 2 },
-	{skill_id: 7 ,buyer_id: 4, seller_id: 1 }
+	{skill_id: 2 ,buyer_id: 3, seller_id: 1 },
+	{skill_id: 1 ,buyer_id: 1, seller_id: 2 },
+	{skill_id: 4 ,buyer_id: 4, seller_id: 1 }
 	])
 
     

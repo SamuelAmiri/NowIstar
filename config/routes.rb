@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'reviews/index'
+
+  get 'reviews/show'
+
+  get 'reviews/new'
+
+  get 'reviews/create'
+
+  get 'reviews/edit'
+
+  get 'reviews/update'
+
+  get 'reviews/destroy'
+
   post '/rate' => 'rater#create', :as => 'rate'
   delete '/logout', to: 'sessions#destroy'
 
@@ -28,7 +42,8 @@ Rails.application.routes.draw do
   get 'users/:id/sales' => "charges#sales", as: "sales"
   get 'users/:id/purchases' => "charges#purchases", as: "purchases"
 
-  get 'users/:id/purchases' => "charges#review", as: "review"
+  post 'users/:id/purchases' => "reviews#create", as: :create_review
+  patch 'users/:id/purchases' => "reviews#update", as: :update_review
 
   resources :categories
   resources :subcategories
