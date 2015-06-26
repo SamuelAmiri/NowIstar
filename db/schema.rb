@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624025649) do
-
+ActiveRecord::Schema.define(version: 20150626030551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +29,15 @@ ActiveRecord::Schema.define(version: 20150624025649) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "rating"
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -64,14 +72,6 @@ ActiveRecord::Schema.define(version: 20150624025649) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "skill_id"
-    t.integer  "buyer_id"
-    t.integer  "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "skills", force: :cascade do |t|
     t.integer  "user_id"
