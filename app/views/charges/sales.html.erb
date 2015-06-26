@@ -17,6 +17,7 @@
       <td class="center"><%= number_to_currency(order.listing.price) %></td>
       <td class="center"><%= order.buyer.fname %></td>
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+      <td class="center"><%= rating_for order, "Rating", :disable_after_rate => true %>
     </tr>
   <% end %>
 </table>
