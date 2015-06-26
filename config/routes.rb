@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'reviews/index'
+
+  get 'reviews/show'
+
+  get 'reviews/new'
+
+  get 'reviews/create'
+
+  get 'reviews/edit'
+
+  get 'reviews/update'
+
+  get 'reviews/destroy'
+
   post '/rate' => 'rater#create', :as => 'rate'
   delete '/logout', to: 'sessions#destroy'
 
