@@ -30,15 +30,12 @@ class ChargesController < ApplicationController
 	  	Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
    		token = params[:stripeToken]
 
-	    begin
 	      	charge = Stripe::Charge.create(
 		        :amount => (@skill.price * 105).floor,
 		        :currency => "usd",
 		        :card => token
 		        )
-	    rescue Stripe::CardError => e
-	      	flash[:danger] = e.message
-	    end
+
 
 	    # transfer = Stripe::Transfer.create(
 	    #   	:amount => (@skill.price * 95).floor,
