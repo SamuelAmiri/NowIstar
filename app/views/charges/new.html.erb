@@ -1,10 +1,17 @@
+<script>
+  function myFunction() {
+      $("#h01").html("Hello jQuery")
+  }
+  $(document).ready(myFunction);
+</script>
+
 <div class="row">
   <div class="col-md-4">
     <h3><%= @skill.title %></h3>
     <h4><%= number_to_currency(@skill.price) %></h4>
   </div>
   <div class="col-md-8">
-
+    <h1 id="h01"></h1>
     <%= form_for([@skill, @order], url: user_skill_charges_path) do |f| %>
       <% if @order.errors.any? %>
         <div id="error_explanation" class="alert alert-danger alert-dismissable">
