@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150626172330) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +77,17 @@ ActiveRecord::Schema.define(version: 20150626172330) do
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["order_id"], name: "index_reviews_on_order_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
   create_table "skills", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subcategory_id"
@@ -127,6 +140,8 @@ ActiveRecord::Schema.define(version: 20150626172330) do
   add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
+  add_foreign_key "reviews", "orders"
+  add_foreign_key "reviews", "users"
   add_foreign_key "skills", "subcategories"
   add_foreign_key "skills", "users"
   add_foreign_key "subcategories", "categories"
