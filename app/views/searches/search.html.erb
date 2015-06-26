@@ -1,11 +1,10 @@
-<div class="col-md-8 skillattributes">
+<div class="col-md-9 skillattributes">
 	<table class="table table-bordered table-hover spacing-table">
 		<thead>
 			<tr>
 
-				<th class="col-md-2"><%= sortable "user", "User" %></th>
+				<th class="col-md-1"><%= sortable "user", "User" %></th>
 				<th class="col-md-5"><%= sortable "title", "Service" %></th>
-				<th class="col-md-1"><%= sortable "subcategory_id", "Subcategory" %> </th>
 				<th class="col-md-1"><%= sortable "subcategory_id", "Subcategory" %></th>
 				<th class="col-md-1"><%= sortable "price", "Price" %></th>
 				<th class="col-md-1"><%= sortable "zipcode", "Zipcode" %></th>
@@ -14,7 +13,7 @@
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td class="searchrow"><%=skill.user %></td>
+					<td class="searchrow"><%=skill.user.fname %></td>
 					<td class="searchrow"><%=skill.title %></td>
 					<td class="searchrow"><%=skill.subcategory.name %></td>
 					<td class="searchrow">$<%=skill.price %></td>

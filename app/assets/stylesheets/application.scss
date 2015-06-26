@@ -18,23 +18,7 @@
 @import "bootstrap";
 
 body {
-	background-color: white;
-}
-th {
-    background-color: #3399FF;
-}
-.searchrow {
-    border-radius: 5px;
-}
-a {
-    color:white; 
-}
-a:visited {
-    color: #FFFF00;
-}
-a:hover {
-    color: #FF0099;
-    background-color: #3399FF;
+    background-color: white;
 }
 .navbar {
     background-color: #3399FF;
@@ -76,39 +60,19 @@ a:hover {
 .col {
     border: 1px solid black;
 }
-
-.skillattributes {
-    text-align: center;
-    width: 70%;
-}
-
-.spacing-table {
-    border-collapse: separate;
-    border-spacing: 0 5px; /* this is the ultimate fix */
-    border-color: white;
-    border-top: solid gray 1px;
-}
-
 .will-hide, .will-hide2 {
     display: none;
 }
-#googleMap {
-  width: 100%;
-  height: 50vw;
-  margin-bottom: 15px;
-  border: 2px solid black;
-}
-
 div.transbox {
-  margin: 50px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity:0.8;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
+    margin: 50px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity:0.8;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
 }
 div.transbox p {
-  margin: 10px;
-  color: #000000;
+    margin: 10px;
+    color: #000000;
 }
 
 .dropdown-submenu {
@@ -162,4 +126,56 @@ div.transbox p {
 }
 .btn-primary:hover {
     background-color: #FF0099;
+}
+.searchrow {
+    border-radius: 5px;
+}
+.skillattributes {
+    text-align: center;
+    width: 75%;
+}
+.spacing-table {
+    border-collapse: separate;
+    border-spacing: 0 5px; /* this is the ultimate fix */
+    border-color: white;
+    border-top: solid gray 1px;
+    margin-left: 2px;
+}
+th {
+    background-color: #3399FF;
+}
+a {
+    color:white; 
+}
+a:visited {
+    color: #FFFF00;
+}
+a:hover {
+    color: #FF0099;
+    background-color: #3399FF;
+}
+#googleMap {
+    width: 100%;
+    height: 50vw;
+    margin-bottom: 15px;
+    margin-right: 0px; 
+    border: 2px solid black;
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+}
+#bio {
+    border: 2px solid grey;
+}
+.profileskills {
+    width: 170%;
+    margin-left: -130px;
+}
+a.skillsbtn {
+    color: #3399FF;
+}
+a.skillsbtn:hover {
+    color: white;
 }
