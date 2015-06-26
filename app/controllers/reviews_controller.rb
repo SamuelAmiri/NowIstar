@@ -1,47 +1,31 @@
 class ReviewsController < ApplicationController
-  def index
-  end
+	def create
+		@order = Order.find(params[:id])
 
-  def show
-  end
+		if current_user.id == @order.buyer_id
+			@review = BuyerReview.create(order_id: params[:order_id], user_id: current_user.id, text: params[:review])
+			redirect_to purchases_path
+		elsif current_user.id == @order.seller_id
+			@review = SellerReview.create(order_id: params[:order_id] , user_id: current_user.id , text: params[:review])
+			redirect_to sales_path
+		else
+			redirect_to root_path
+		end
+	end
 
-  def create
-    @order = Order.find(params[:id])
-
-    if current_user.id = @order.buyer_id
-      @review = Review.create(order_id: params[:order_id], user_id: current_user.id, text: params[:review])
-      redirect_to purchases_path
-    elsif current_user.id = @order.seller_id
-      @review = Review.create(order_id: params[:order_id] , user_id: current_user.id , text: params[:review])
-      redirect_to sales_path
-    else
-      redirect_to root_path
-    end
-  end
-
-
-  def edit
-  end
-
-  def update
-    @order = Order.find(params[:id])
-    if current_user = @order.buyer_id
-      @review.update_attributes(order_id: params[:order_id], text: params[:review])
-      redirect_to purchases_path
-    elsif current_user = @order.seller_id
-      @review.update_attributes(order_id: params[:order_id], text: params[:review])
-      redirect_to sales_path
-    else
-      redirect_to root_path
-    end
-  end
-
-  def destroy
-  end
-
-private
-  def review_params
-    params.require(:review).permit(:order_id, :user_id, :text)
-  end
-
+	def update
+		@order = Order.find(params[:order_id])
+		@seller_review = SellerReview.find(order_id: params[:order_id], user_id: current_user.id)
+		@buyer_review = BuyerReview.find(order_id: params[:order_id], user_id: current_user.id)
+		
+		if current_user.id == @order.buyer_id
+			@buyer_review.update_attributes(text: params[:review])
+			redirect_to purchases_path
+		elsif current_user.id == @order.seller_id
+			@seller_review.update_attributes(text: params[:review])
+			redirect_to sales_path
+		else
+			redirect_to root_path
+		end
+	end
 end
