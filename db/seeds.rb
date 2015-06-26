@@ -130,12 +130,70 @@ users = User.create([
 	
 
 skills = Skill.create([
-	{user_id: 1 , subcategory_id: 4, price: 40.00, description: "" , image: "" , title: "One on One Photography Lessons" , address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
-	{user_id: 1 , subcategory_id: 4, price: 50.00, description: "" , image: "" , title: "Small Group Landscape Photography Lessons" ,address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
-	{user_id: 1 , subcategory_id: 4, price: 30.00, description: "" , image: "" , title: "Group Lessons at City Hall", address: "1685 Main St" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.011657 , latitude: -118.491674 },
-	{user_id: 1 , subcategory_id: 4, price: 60.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 },
-	{user_id: 1 , subcategory_id: 4, price: 100.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, latitude: -118.495200 }
+	{user_id: 1 , subcategory_id: 4, price: 40.00, description: "" , image: "" , title: "One on One Photography Lessons" , address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, longitude: -118.495200 },
+	{user_id: 1 , subcategory_id: 4, price: 50.00, description: "" , image: "" , title: "Small Group Landscape Photography Lessons" ,address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012924, longitude: -118.495200 },
+	{user_id: 1 , subcategory_id: 4, price: 30.00, description: "" , image: "" , title: "Group Lessons at City Hall", address: "1685 Main St" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.011657 , longitude: -118.491674 },
+	{user_id: 1 , subcategory_id: 4, price: 60.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012935, longitude: -118.495200 },
+	{user_id: 1 , subcategory_id: 4, price: 100.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, longitude: -118.495200 }
 	])
 
+50.times do
+    User.create(
+        fname: Faker::Name.first_name,
+        lname: Faker::Name.last_name,
+        email: Faker::Internet.email,
+        servicer: true,
+        provider: "facebook",
+        uid: Faker::Number.number(17)
+    )
+end
+
+
+
+addresses = [
+['602 Santa Monica Blvd', 'Santa Monica', 'CA', '90401'],
+['1517 Lincoln Blvd', 'Santa Monica', 'CA', '90401'],
+['829 Broadway', 'Santa Monica', 'CA', '90401'],
+['831 Broadway', 'Santa Monica', 'CA', '90401'],
+['828 Broadway', 'Santa Monica', 'CA', '90401'],
+['601 Colorado Ave', 'Santa Monica', 'CA', '90407'],
+['623 Colorado Ave', 'Santa Monica', 'CA', '90407'],
+['725 Colorado Ave', 'Santa Monica', 'CA', '90407'],
+['2510 Main St', 'Santa Monica', 'CA', '90405'],
+['2470 Main St', 'Santa Monica', 'CA', '90405'],
+['1701 Ocean Park Blvd', 'Santa Monica', 'CA', '90405'],
+['2728 Main St', 'Santa Monica', 'CA', '90405'],
+['2618 Main St', 'Santa Monica', 'CA', '90405'],
+['508 Santa Monica Blvd', 'Santa Monica', 'CA', '90401'],
+['805 Santa Monica Blvd', 'Santa Monica', 'CA', '90401'],
+['225 Santa Monica Blvd', 'Santa Monica', 'CA', '90401'],
+['843 Pico Blvd', 'Santa Monica', 'CA', '90405'],
+['1121 Pico Blvd', 'Santa Monica', 'CA', '90405'],
+['1701 Pico Blvd', 'Santa Monica', 'CA', '90405'],
+['1701 Ocean Park Blvd', 'Santa Monica', 'CA', '90405'],
+['1033 Grant Street', 'Santa Monica', 'CA', '90405'],
+['1027 Grant Street', 'Santa Monica', 'CA', '90405'],
+['1175 6th Street', 'Santa Monica', 'CA', '90403'],
+['9 Pacific Terrace', 'Santa Monica', 'CA', '90401'],
+['531 Ocean Park Blvd', 'Santa Monica', 'CA', '90405'],
+['532 Ocean Park Blvd', 'Santa Monica', 'CA', '90405'],
+
+]
+
+
+addresses.each do |address|
+	Skill.create(
+		user_id: rand(1..50),
+		subcategory_id: rand(1..90),
+		price: Faker::Commerce.price,
+		description: Faker::Lorem.paragraph(2),
+		title: Faker::Lorem.sentence,
+		address: address[0],
+		city: address[1],
+		state: address[2],
+		zipcode: address[3]	
+	)
+	sleep 1
+end
 
 
