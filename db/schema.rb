@@ -76,11 +76,11 @@ ActiveRecord::Schema.define(version: 20150626030551) do
   create_table "skills", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subcategory_id"
-    t.decimal  "price"
+    t.decimal  "price",          precision: 6, scale: 2
     t.text     "description"
     t.string   "image"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "title"
     t.string   "address"
     t.string   "city"
