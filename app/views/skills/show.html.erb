@@ -14,7 +14,7 @@
 		<td class="searchrow"><%=@skill.user.fname %></td>
 		<td class="searchrow"><%=@skill.title %></td>
 		<td class="searchrow"><%=@skill.subcategory_id %></td>
-		<td class="searchrow"><%=@skill.price %></td>
+		<td class="searchrow"><%=@skill.price.round(2) %></td>
 		<% if current_user %>
 			<td><%= @skill.user.phonenumber%></td>
 			<td><%= link_to "Buy It Now", new_user_skill_charge_path(@user, @skill), class: "btn btn-primary", data: { no_turbolink: true } %>
