@@ -1,11 +1,11 @@
 class ChargesController < ApplicationController
 
 	def sales
-	    @orders = Order.where(seller: current_user).order("created_at DESC")
+	    @orders = Order.where(seller_id: params[:id]).order("created_at DESC")
 	end
 
 	def purchases
-	    @orders = Order.where(buyer: current_user).order("created_at DESC")
+	    @orders = Order.where(buyer: params[:id]).order("created_at DESC")
 	end
 	
 	# GET /orders/new
