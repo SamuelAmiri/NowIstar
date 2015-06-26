@@ -37,9 +37,17 @@ gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Figaro to hide access keys and secret keys.
 gem 'figaro'
 
+# Use for ratings
+gem 'ratyrate'
+
+# Use Geocoder to geocode locations without to lower amount of queries to Google Maps API
 gem 'geocoder'
+
+# Use Faker to create seed data.
+gem 'faker', git: "https://github.com/stympy/faker.git"
 
 #Use OmniAuth for authentication of LinkedIn
 gem 'omniauth'	
@@ -52,7 +60,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'binding 'pry' ' anywhere in the code to stop execution and get a debugger console. Be
+  # Sure to include 'require pry' .
 
   gem 'pry-rails'
   gem 'pry-stack_explorer'
@@ -70,6 +79,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem "better_errors"
 
 
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   delete '/logout', to: 'sessions#destroy'
 
   get "/auth/:provider/callback" => "sessions#create" 
@@ -11,17 +12,21 @@ Rails.application.routes.draw do
   root 'statics#home'
 
   resources :users do
-    resources :skills, except: :index
+    resources :skills, except: :index do
+     resources :charges, only: [:new, :create]
+     end
   end
   
   get 'skills' => "skills#index" 
   
   namespace :api do
-     resources :skills, only: [:index, :show]
+     resources :skills, only: [:index, :show] 
   end
 
-  resources :charges
   
+
+  get 'users/:id/sales' => "charges#sales", as: "sales"
+  get 'users/:id/purchases' => "charges#purchases"
 
   resources :categories
   resources :subcategories
