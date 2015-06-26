@@ -7,6 +7,11 @@ class ChargesController < ApplicationController
 	def purchases
 	    @orders = Order.where(buyer: params[:id]).order("created_at DESC")
 	end
+
+	def review
+		@order = Order.find(params[:id])
+		@order.update_attributes(review: params[:review])
+	end
 	
 	# GET /orders/new
 	def new
