@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get 'users/:id/sales' => "charges#sales", as: "sales"
   get 'users/:id/purchases' => "charges#purchases", as: "purchases"
 
-  get 'users/:id/purchases' => "charges#review", as: "review"
+  patch 'users/:id/purchases' => "charges#review", as: "review"
 
   resources :categories
   resources :subcategories

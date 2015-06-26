@@ -10,7 +10,13 @@ class ChargesController < ApplicationController
 
 	def review
 		@order = Order.find(params[:id])
-		@order.update_attributes(review: params[:review])
+		if current_user = @order.buyer_id
+			@order.update_attributes(review_seller: params[:review])
+			redirect_to purchases_path
+		elsif current_user = @order.seller_id
+			@order.update_attributes(review_buyer: params[:review])
+			redirect_to sales_path
+		end
 	end
 	
 	# GET /orders/new
