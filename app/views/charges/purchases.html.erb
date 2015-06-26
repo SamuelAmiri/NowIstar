@@ -25,9 +25,9 @@
 		<% if current_user.id == order.buyer_id %>  
 		<td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
 			<% if order.reviews != nil %>
-			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add a Review</button>
+			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal<%=order.id%>">Add a Review</button>
 				<!-- Modal -->
-				<div id="myModal" class="modal fade" role="dialog">
+				<div id="modal<%=order.id %>" class="modal fade" role="dialog">
 					<div class="modal-dialog">
 						<!-- Modal content-->
 						<div class="modal-content">
