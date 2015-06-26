@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   ## DISPLAYS A SINGLE USER
   def show
-    @skills = current_user.skills
+    @user = User.find(params[:id])
+    @skills = @user.skills
   end
 
   ## USER PUTS IN THEIR INFORMATION
