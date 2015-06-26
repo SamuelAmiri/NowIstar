@@ -165,17 +165,33 @@ a:hover {
 h2 {
     font-family: 'Pacifico', cursive;
     font-size: 50px;
+    width: 700px;
 }
 #bio {
-    border: 2px solid grey;
+    border: 2px solid lightgrey;
+    width: 600px;
+    border-radius: 5px;
 }
 .profileskills {
-    width: 170%;
-    margin-left: -130px;
+    width: 900px;
+    margin-left: -250px;
 }
 a.skillsbtn {
     color: #3399FF;
 }
 a.skillsbtn:hover {
     color: white;
+}
+h3 {
+    color: white;
+    background-color: lightgrey;
+}
+td {
+    border-radius: 5px;
+}
+.profpic {
+    width: 250px;
+    height: 250px;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px; 
 }
