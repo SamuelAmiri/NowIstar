@@ -42,7 +42,8 @@ Rails.application.routes.draw do
   get 'users/:id/sales' => "charges#sales", as: "sales"
   get 'users/:id/purchases' => "charges#purchases", as: "purchases"
 
-  patch 'users/:id/purchases' => "charges#review", as: "review"
+  post 'users/:id/purchases' => "reviews#create", as: :create_review
+  patch 'users/:id/purchases' => "reviews#update", as: :update_review
 
   resources :categories
   resources :subcategories

@@ -19,7 +19,7 @@
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
       <% if current_user.id == order.buyer_id %>  
         <td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
-        <% if order.review_seller != nil %>
+        <% if order.reviews != nil %>
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add a Review</button>
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
@@ -31,7 +31,7 @@
                   <h4 class="modal-title">Add a Review</h4>
                   <p>How was your experience with <%=order.seller.fname %>?</p>
                 </div>
-                <%= form_tag review_path, method: :patch do %>
+                <%= form_tag create_review_path, method: :post do %>
                   <%= text_area_tag :review, nil, rows: 10, placeholder: 'Add review here.', class: 'form-control' %>
                   <%= submit_tag "Submit Review",class: 'form-control btn-info' %>
                   <br>
@@ -41,7 +41,7 @@
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
               </div>
-        <% elsif order.review_seller == nil %>
+        <% elsif order.reviews != nil %>
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit Review</button>
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
@@ -53,9 +53,9 @@
                   <h4 class="modal-title">Edit Review</h4>
                   <p>How was your experience with <%=order.seller.fname %>?</p>
                 </div>
-                <%= form_tag review_path, method: :patch do %>
+                <%= form_tag update_review_path, method: :patch do %>
                   <%= text_area_tag :review, nil, rows: 10, placeholder: 'test', class: 'form-control' %>
-                  <%= submit_tag "Submit Review",class: 'form-control btn-info' %>
+                  <%= submit_tag "Submit Edited Review",class: 'form-control btn-info' %>
                   <br>
                 <% end %>
                 </div>

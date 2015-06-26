@@ -7,19 +7,6 @@ class ChargesController < ApplicationController
 	def purchases
 	    @orders = Order.where(buyer: params[:id]).order("created_at DESC")
 	end
-
-	def review
-		@order = Order.find(params[:id])
-		if current_user = @order.buyer_id
-			@order.update_attributes(review_seller: params[:review])
-			redirect_to purchases_path
-		elsif current_user = @order.seller_id
-			@order.update_attributes(review_buyer: params[:review])
-			redirect_to sales_path
-		else
-			redirect_to root_path
-		end
-	end
 	
 	# GET /orders/new
 	def new
