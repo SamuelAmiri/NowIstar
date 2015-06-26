@@ -8,6 +8,7 @@
     <th class="center">Price</th>
     <th class="center">Seller</th>
     <th class="center">Date Purchased</th>
+    <th class="center">Rating</th>
   </tr>
 
   <% @orders.each do |order| %>
@@ -16,9 +17,35 @@
       <td class="center"><%= number_to_currency(order.skill.price) %></td>
       <td class="center"><%= order.seller.fname %></td>
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
-      <% if current_user %>
+      <% if current_user.id == order.buyer_id %>  
         <td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
       <% end %>
+      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add a Review</button>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add a Review</h4>
+              <p>How was your experience with <%=order.seller.fname %>?</p>
+            </div>
+            <%= form_tag review_path, method: :get do %>
+            <%= text_area_tag :review, nil, rows: 10, placeholder: 'Add review here.', class: 'form-control' %>
+            <%= submit_tag "Submit Review",class: 'form-control btn-info' %>
+            <br>
+            <% end %>
+              
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+  </div>
+</div>
     </tr>
   <% end %>
 </table>
