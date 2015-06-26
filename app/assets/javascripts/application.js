@@ -66,7 +66,6 @@ function initialize_my_map() {
             oms.addListener('click', function(marker, event) {
                 infowindow.setContent(marker.content);
                 infowindow.open(map, marker);
-                keepSpiderfied (true);
             });
         }
         (marker, i);

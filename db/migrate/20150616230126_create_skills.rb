@@ -3,7 +3,7 @@ class CreateSkills < ActiveRecord::Migration
     create_table :skills do |t|
       t.references :user, index: true, foreign_key: true
       t.references :subcategory, index: true, foreign_key: true
-      t.decimal :price
+      t.decimal :price, :precision => 6, :scale => 2
       t.text :description
       t.string :image
 
