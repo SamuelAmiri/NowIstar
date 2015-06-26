@@ -5,7 +5,7 @@ class SkillsController < ApplicationController
   before_filter :load_user, except: [:index, :search]
 
   def index
-    @skills = Skill.all
+    @skills = Skill.all.page(params[:page]).per_page(10)
 	respond_to do |format|
   		format.html {
   			render
