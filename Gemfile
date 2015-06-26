@@ -58,6 +58,8 @@ gem 'omniauth-facebook'
 # Stripe API gem to add charge ability 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+# Pagination Gem to add pagination for results
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'binding 'pry' ' anywhere in the code to stop execution and get a debugger console. Be
