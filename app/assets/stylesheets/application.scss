@@ -167,8 +167,15 @@ h2 {
     font-size: 50px;
 }
 #bio {
-    border: 2px solid gray;
+    border: 2px solid grey;
 }
 .profileskills {
-    width: 170%
+    width: 170%;
+    margin-left: -130px;
+}
+a.skillsbtn {
+    color: #3399FF;
+}
+a.skillsbtn:hover {
+    color: white;
 }
