@@ -2,6 +2,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .
 // The init function needs to run on load
 google.maps.event.addDomListener(window, 'load', initialize_my_map)

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   delete '/logout', to: 'sessions#destroy'
 
   get "/auth/:provider/callback" => "sessions#create" 

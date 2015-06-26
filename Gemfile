@@ -40,6 +40,8 @@ gem 'pg'
 # Use Figaro to hide access keys and secret keys.
 gem 'figaro'
 
+# Use for ratings
+gem 'ratyrate'
 
 # Use Geocoder to geocode locations without to lower amount of queries to Google Maps API
 gem 'geocoder'
