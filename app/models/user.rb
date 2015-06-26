@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+	ratyrate_rater
 	has_many :skills, dependent: :destroy
 	has_many :sales, class_name: "Order", foreign_key: "seller_id"
   	has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
-  	ratyrate_rater
+  	
   	
   	accepts_nested_attributes_for :skills
 	#has_attached_file :image, styles: {small: "50x50", med: "100x100", large: "200x200" }, :default_url => ""
