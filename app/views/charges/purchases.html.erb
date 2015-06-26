@@ -30,9 +30,12 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add a Review</h4>
               <p>How was your experience with <%=order.seller.fname %>?</p>
-              <hr>
             </div>
-            
+            <%= form_tag review_path, method: :get do %>
+            <%= text_area_tag :review, nil, rows: 10, placeholder: 'Add review here.', class: 'form-control' %>
+            <%= submit_tag "Submit Review",class: 'form-control btn-info' %>
+            <br>
+            <% end %>
               
             </div>
 
