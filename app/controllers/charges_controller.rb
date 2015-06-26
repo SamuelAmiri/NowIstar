@@ -1,16 +1,11 @@
 class ChargesController < ApplicationController
 
 	def sales
-	    @orders = Order.where(seller_id: params[:id]).order("created_at DESC")
+	    @orders = Order.all.where(seller: current_user).order("created_at DESC")
 	end
 
 	def purchases
-	    @orders = Order.where(buyer: params[:id]).order("created_at DESC")
-	end
-
-	def review
-		@order = Order.find(params[:id])
-		@order.update_attributes(review: params[:review])
+	    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
 	end
 	
 	# GET /orders/new
@@ -35,12 +30,15 @@ class ChargesController < ApplicationController
 	  	Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
    		token = params[:stripeToken]
 
+	    begin
 	      	charge = Stripe::Charge.create(
 		        :amount => (@skill.price * 105).floor,
 		        :currency => "usd",
 		        :card => token
 		        )
-
+	    rescue Stripe::CardError => e
+	      	flash[:danger] = e.message
+	    end
 
 	    # transfer = Stripe::Transfer.create(
 	    #   	:amount => (@skill.price * 95).floor,
@@ -50,7 +48,7 @@ class ChargesController < ApplicationController
 
 	    respond_to do |format|
 	      if @order.save
-	        format.html { redirect_to root_url, notice: "Thanks for ordering!" }
+	        format.html { redirect_to user_path(current_user), notice: "Thanks for ordering!" }
 	        format.json { render action: 'show', status: :created, location: @order }
 	      else
 	        format.html { render action: 'new' }
