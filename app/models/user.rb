@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	has_many :sales, class_name: "Order", foreign_key: "seller_id"
   	has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
   	
+  	accepts_nested_attributes_for :skills
 	#has_attached_file :image, styles: {small: "50x50", med: "100x100", large: "200x200" }, :default_url => ""
 	#validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 

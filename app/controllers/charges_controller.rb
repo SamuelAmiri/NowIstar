@@ -8,25 +8,31 @@ class ChargesController < ApplicationController
 	    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
 	end
 	
+	# GET /orders/new
 	def new
 		@order = Order.new
-		@skill = Skill.find(params[:id])
+		@user = User.find(params[:user_id])
+		@skill = @user.skills.find(params[:skill_id])
 	end
 
+	# POST /orders
+  	# POST /orders.json
 	def create
 	  	@order = Order.new
-	  	@skill = Skill.find(params[:id])
+		@user = User.find(params[:user_id])
+		@skill = @user.skills.find(params[:skill_id])
 	  	@seller = @skill.user
 	  
-	  	@order.skills_id = @skill.id
+	  	@order.skill_id = @skill.id
 		@order.buyer_id = current_user.id
 	  	@order.seller_id = @seller.id
 
-      	token = params[:stripeToken]
+	  	Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+   		token = params[:stripeToken]
 
 	    begin
 	      	charge = Stripe::Charge.create(
-		        :amount => (@skill.price * 100).floor,
+		        :amount => (@skill.price * 105).floor,
 		        :currency => "usd",
 		        :card => token
 		        )
@@ -34,16 +40,11 @@ class ChargesController < ApplicationController
 	      	flash[:danger] = e.message
 	    end
 
-		rescue Stripe::CardError => e
-		  	flash[:error] = e.message
-		  	redirect_to charges_path
-		end
-
-	    transfer = Stripe::Transfer.create(
-	      	:amount => (@skill.price * 95).floor,
-		    :currency => "usd",
-		  	:recipient => @seller.servicer
-	      	)
+	    # transfer = Stripe::Transfer.create(
+	    #   	:amount => (@skill.price * 95).floor,
+		   #  :currency => "usd",
+		  	# :recipient => @seller.servicer
+	    #   	)
 
 	    respond_to do |format|
 	      if @order.save
@@ -54,7 +55,12 @@ class ChargesController < ApplicationController
 	        format.json { render json: @order.errors, status: :unprocessable_entity }
 	      end
 	    end
-
   	end
+
+  private
+
+    def order_params
+      params.require(:order).permit(:address, :city, :state, :zip_code)
+    end
 
 end
