@@ -2,25 +2,25 @@
 	<table class="table table-bordered table-hover spacing-table">
 		<thead>
 			<tr>
-				<th class="col-md-1"><%= sortable "user", "User" %></th>
-				<th class="col-md-4"><%= sortable "title", "Service" %></th>
-				<th class="col-md-1"><%= sortable "subcategory_id", "Subcategory" %></th>
-				<th class="col-md-1"><%= sortable "price", "Price" %></th>
-				<th class="col-md-1"><%= sortable "zipcode", "Zipcode" %></th>
+				<th class="col-md-1 table1"><%= sortable "user", "User" %></th>
+				<th class="col-md-4 table1"><%= sortable "title", "Service" %></th>
+				<th class="col-md-1 table1"><%= sortable "subcategory_id", "Subcategory" %></th>
+				<th class="col-md-1 table1"><%= sortable "price", "Price" %></th>
+				<th class="col-md-1 table1"><%= sortable "zipcode", "Zipcode" %></th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td class="searchrow"><strong><%=skill.user.fname %></strong><br>
+					<td class="searchrow"><%=skill.user.fname %><br>
 					<%= image_tag skill.user.image %>
 					</td>
-					<td class="searchrow"><strong><%=skill.title %></strong><br>
+					<td class="searchrow"><%=skill.title %><br>
 					<%= skill.description %>
 					</td>
-					<td class="searchrow"><strong><%=skill.subcategory.name %></strong></td>
-					<td class="searchrow"><strong><%= number_to_currency(skill.price) %></strong></td>
-					<td class="searchrow"><strong><%=skill.zipcode %></strong></td>
+					<td class="searchrow"><%=skill.subcategory.name %></td>
+					<td class="searchrow"><%= number_to_currency(skill.price) %></td>
+					<td class="searchrow"><%=skill.zipcode %></td>
 				</tr>
 			<% end %>
 		</tbody>
