@@ -20,13 +20,18 @@
 body {
     background-color: white;
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
 }
 .navbar {
     background-color: #3399FF;
-    font-size: 15px;
-    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+
 }
 .navbar .nav > li > a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
     color: white;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -34,8 +39,8 @@ body {
     color: #FFFF00;
 }
 .logo {
-
-    font-size: 40px;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
 }
 .thesearch {  height:auto; 
     margin:0 auto; 
@@ -163,9 +168,7 @@ a:hover {
     border: 2px solid black;
 }
 
-h2 {
-    font-family: 'Lato', sans-serif;
-    font-size: 50px;
+h2 {    font-size: 50px;
     width: 700px;
 }
 #bio {
