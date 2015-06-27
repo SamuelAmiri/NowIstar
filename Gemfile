@@ -60,6 +60,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Pagination Gem to add pagination for results
 gem 'will_paginate'
+gem 'betterlorem', '~> 0.1.2'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 group :development, :test do
   # Call 'binding 'pry' ' anywhere in the code to stop execution and get a debugger console. Be
