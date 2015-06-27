@@ -22,22 +22,25 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
 }
+
 .navbar {
-    background-color: #3399FF;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 12px;
 
 }
 .navbar .nav > li > a {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: white;
+    font-size: 12px;
+    text-color: #48515e;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: #3399FF;
-    color: #FFFF00;
+    color: #f60;
 }
+
+.navbar-inverse {
+  background-color: white;
+  border-color: white;
+}
+
 .logo {
     font-family: 'Pacifico', cursive;
     font-size: 50px;
@@ -151,14 +154,13 @@ th {
     background-color: #3399FF;
 }
 a {
-    color:white; 
+    color: #FF0099; 
 }
 a:visited {
     color: #FFFF00;
 }
 a:hover {
     color: #FF0099;
-    background-color: #3399FF;
 }
 #googleMap {
     width: 100%;
