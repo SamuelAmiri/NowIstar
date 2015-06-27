@@ -16,22 +16,22 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-static-top navbar-default">
-    <ul class="nav navbar-nav">
-        <li class="logo"><a href="/">nowistar</a></li>
+<nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
+    <div class="col-md-1"></div>
+    <ul class="nav navbar-nav col-md-10">  
+    <div class="logo"><a href="/">Now i Star</a></div>
         <% if current_user %>
-        <li><img src="<%= current_user.image %>" width="50" /></li>
-        <li><a href="/users/<%= current_user.id %>">PROFILE</a></li>
-        <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
         <li><a href="/auth/logout">LOGOUT</a></li>
-        
+        <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
+        <li><a href="/users/<%= current_user.id %>">MY ACCOUNT</a></li>
+        <li><a href="/statics/about<%= current_user.id %>/edit">HOW IT WORKS</a></li>
         <% else %>
         <li><a href="/auth/facebook">LOGIN VIA FACEBOOK</a></li>
         <li><a href="/auth/linkedin">LOGIN VIA LINKEDIN</a></li>
-        <% end %>
+        <% end %>       
     </ul>
+    <div class="col-md-1"></div>
 </nav>
-
 
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
