@@ -13,11 +13,15 @@
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td class="searchrow"><%=skill.user.fname %></td>
-					<td class="searchrow"><%=skill.title %></td>
-					<td class="searchrow"><%=skill.subcategory.name %></td>
-					<td class="searchrow">$<%= skill.price %></td>
-					<td class="searchrow"><%=skill.zipcode %></td>
+					<td class="searchrow"><strong><%=skill.user.fname %></strong><br>
+					<%= image_tag skill.user.image %>
+					</td>
+					<td class="searchrow"><strong><%=skill.title %></strong><br>
+					<%= skill.description %>
+					</td>
+					<td class="searchrow"><strong><%=skill.subcategory.name %></strong></td>
+					<td class="searchrow"><strong><%= number_to_currency(skill.price) %></strong></td>
+					<td class="searchrow"><strong><%=skill.zipcode %></strong></td>
 
 				</tr>
 			<% end %>
