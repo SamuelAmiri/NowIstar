@@ -2,9 +2,9 @@
 	<table class="table table-bordered table-hover spacing-table">
 		<thead>
 			<tr>
-				<th class="col-md-2">User</th>
-				<th class="col-md-5">Service</th>
-				<th class="col-md-1">Subcategory</th>
+				<th class="col-md-2">Servicer</th>
+				<th class="col-md-3">Service</th>
+				<th class="col-md-5">Description</th>
 				<th class="col-md-1">Price</th>
 				<th class="col-md-1">Contact Information</th>
 				<th class="col-md-1">Hire Now</th>
@@ -13,7 +13,7 @@
 	<tr>
 		<td class="searchrow"><%=@skill.user.fname %></td>
 		<td class="searchrow"><%=@skill.title %></td>
-		<td class="searchrow"><%=@skill.subcategory_id %></td>
+		<td class="searchrow"><%=@skill.description %></td>
 		<td class="searchrow"><%=@skill.price.round(2) %></td>
 		<% if current_user %>
 			<td><%= @skill.user.phonenumber%></td>
