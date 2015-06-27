@@ -1,0 +1,7 @@
+$('#my-skills').append('<%= j  @skills %>');
+<% if @skills.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @skills %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

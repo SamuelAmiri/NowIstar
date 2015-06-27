@@ -29,9 +29,10 @@
                                     <th class="col-md-3">Service</th>
                                     <th class="col-md-1">Subcategory</th>
                                     <th class="col-md-1">Price</th>
-                                    <th class="col-md-1">Location</th>
                                     <th class="col-md-5">Description</th>
-                                    <br>
+                                    <% if current_user == @user %>
+                                    <th class="col-md-3">Location</th>
+                                    <% end %>
                                     <br>
                                 </tr>
                             </thead>
@@ -41,20 +42,21 @@
                                         <td><%=skill.title %></td>
                                         <td><%=skill.subcategory_id %></td>
                                         <td><%=skill.price %></td>
-                                        <td><%=skill.full_address %></td>
                                         <td><%=skill.description %></td>
                                         <% if current_user == @user %>
+                                        <td><%=skill.full_address %></td>
                                         <td><%= link_to "Edit", edit_user_skill_path(@user, skill), class:"btn btn-info" %></td>
                                         <td><%= link_to 'Delete', user_skill_path(@user, skill),
                                                   method: :delete,
                                                   data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %><br><hr></td>
                                         <% else %>
-                                        <td><%=link_to('See this Ad', user_skill_path(skill.user, skill.id))%><td>
+                                        <td><%=link_to('See this Ad', user_skill_path(skill.user, skill.id))%></td>
                                         <% end %>
                                     </tr>
                                 <% end %>
                             </tbody>
                         </table>
+                        <%= will_paginate @skills%>
                     </div>
 
                 </div>

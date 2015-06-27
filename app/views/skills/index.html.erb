@@ -1,5 +1,5 @@
 <div class="col-md-9 skillattributes">
-	<table class="table table-bordered table-hover spacing-table">
+	<table class="table table-bordered table-hover spacing-table" id="my-skills">
 		<thead>
 			<tr>
 				<th class="col-md-2">User</th>
@@ -20,7 +20,9 @@
 			<% end %>
 		</tbody>
 	</table>
-	<%= will_paginate @skills %>
+	<div id="infinite-scrolling">
+  		<%= will_paginate @skills%>
+	</div>
 </div>
 
 

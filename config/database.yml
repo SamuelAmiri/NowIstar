@@ -18,6 +18,12 @@ test:
   <<: *default
   database: nowistar_test
 
+production:
+  <<: *default
+  database: nowistar_production
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  
 # default: &default
 #   adapter: sqlite3
 #   pool: 5

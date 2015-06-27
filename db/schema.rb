@@ -46,9 +46,11 @@ ActiveRecord::Schema.define(version: 20150626220534) do
     t.integer  "skill_id"
     t.integer  "buyer_id"
     t.integer  "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "rating"
+    t.text     "review_buyer"
+    t.text     "review_seller"
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -83,6 +85,17 @@ ActiveRecord::Schema.define(version: 20150626220534) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["order_id"], name: "index_reviews_on_order_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "seller_reviews", force: :cascade do |t|
     t.integer  "order_id"
@@ -149,6 +162,8 @@ ActiveRecord::Schema.define(version: 20150626220534) do
 
   add_foreign_key "buyer_reviews", "orders"
   add_foreign_key "buyer_reviews", "users"
+  add_foreign_key "reviews", "orders"
+  add_foreign_key "reviews", "users"
   add_foreign_key "seller_reviews", "orders"
   add_foreign_key "seller_reviews", "users"
   add_foreign_key "skills", "subcategories"
