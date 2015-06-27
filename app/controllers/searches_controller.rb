@@ -57,7 +57,7 @@ class SearchesController < ApplicationController
 private
 
   def sort_column  
-  Skill.column_names.include?(params[:sort]) ? params[:sort] : "name"  
+  Skill.column_names.include?(params[:sort]) ? params[:sort] : "user"  
 end  
   
   def sort_direction  
