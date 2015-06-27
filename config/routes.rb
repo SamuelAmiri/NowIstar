@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'buyer_reviews/create'
+
+  get 'buyer_reviews/update'
+
+  get 'seller_reviews/create'
+
+  get 'seller_reviews/update'
+
+  get 'seller_reviews/create'
+
+  get 'seller_reviews/update'
+
+  get 'buyer_reviews/create'
+
+  get 'buyer_reviews/update'
+
   get 'reviews/index'
 
   get 'reviews/show'

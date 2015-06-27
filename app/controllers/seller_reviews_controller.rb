@@ -1,0 +1,17 @@
+class SellerReviewsController < ApplicationController
+  def create
+  	@seller_review = SellerReview.create(seller_review_params)
+  end
+
+  def update
+  	@seller_review = SellerReview.find(params[:id])
+  	@seller_review = SellerReview.update_attributes(seller_review_params)
+  end
+
+
+private
+	def seller_review_params
+    params.require(:seller_review).permit(:order_id, :user_id, :text)
+  end
+
+end

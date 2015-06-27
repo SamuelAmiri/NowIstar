@@ -55,9 +55,10 @@ function initialize_my_map() {
             var marker = new google.maps.Marker({
                     position: markerPosition,
                     animation: google.maps.Animation.DROP
-                    
+                
                 	})
-            marker.content = '<h5>' + results[i].title + '</h5><hr><h3>$' + results[i].price + '</h3>';
+            marker.content = '<h5>' + results[i].title + '</h5><hr><h3>$' + results[i].price + '</h3><h6>' + results[i].address + '</h6>' +
+            '<h6>' + results[i].city + ',' + results[i].state + ' ' + results[i].zipcode + '</h6>';  
 			marker.setMap(map)
 			bounds.extend(markerPosition);
 			map.fitBounds(bounds);
