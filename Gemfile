@@ -63,6 +63,10 @@ gem 'will_paginate'
 gem 'betterlorem', '~> 0.1.2'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 
+group :production do
+  gem 'rails_12factor', '0.0.2'
+end
+
 group :development, :test do
   # Call 'binding 'pry' ' anywhere in the code to stop execution and get a debugger console. Be
   # Sure to include 'require pry' .
