@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-static-top navbar-default" id="navbar-contain">
+<nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
     <div class="col-md-1"></div>
     <ul class="nav navbar-nav col-md-10">  
     <div class="logo"><a href="/">nowistar</a></div>
@@ -25,15 +25,10 @@
         <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
         <li><a href="/users/<%= current_user.id %>">MY ACCOUNT</a></li>
         <li><a href="/statics/about<%= current_user.id %>/edit">HOW IT WORKS</a></li>
-        
-        
-        
-        
         <% else %>
         <li><a href="/auth/facebook">LOGIN VIA FACEBOOK</a></li>
         <li><a href="/auth/linkedin">LOGIN VIA LINKEDIN</a></li>
-        <% end %>
-        
+        <% end %>       
     </ul>
     <div class="col-md-1"></div>
 </nav>
