@@ -13,7 +13,9 @@
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td class="searchrow"><%=skill.user.fname %></td>
+					<td class="searchrow"><%=skill.user.fname %><br>
+					<%= image_tag skill.user.image %>
+					</td>
 					<td class="searchrow"><%=skill.title %></td>
 					<td class="searchrow"><%=skill.subcategory.name %></td>
 					<td class="searchrow">$<%= skill.price %></td>
