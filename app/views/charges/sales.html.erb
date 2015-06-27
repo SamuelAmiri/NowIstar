@@ -4,22 +4,22 @@
 
 <table class="table table-striped table-bordered">
   <tr>
+    <th class="center">Order ID</th>
     <th class="center">Skill</th>
     <th class="center">Price</th>
     <th class="center">Customer</th>
     <th class="center">Date Sold</th>
+    <th class="center">Rating</th>
   </tr>
 
   <% @orders.each do |order| %>
   <tr>
     <td class="center"><%= order.id %></td>
     <td class="center"><%= order.skill.title %></td>
-    <td class="center"><%= order.skill.id %></td>
     <td class="center"><%= number_to_currency(order.skill.price) %></td>
-    <td class="center"><%= order.seller.fname %></td>
-
+    <td class="center"><%= order.buyer.fname %></td>
     <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
-    <% if current_user.id == order.seller_id %>  
+    <% if current_user.id == order.buyer_id %>  
     <td class="center"><%= rating_for order, "rating", :disable_after_rate => true %>
       <% if order.buyer_review == nil %>
       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal<%=order.id%>">Add a Review</button>
