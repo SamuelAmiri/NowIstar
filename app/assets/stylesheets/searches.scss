@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.table1 {
+TH {
 	border-radius: 5px;
+	text-align: center;
+}
+
+.searchrow {
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+.skillattributes {
+    text-align: center;
+    width: 75%;
+}
+.spacing-table {
+    border-collapse: separate;
+    border-spacing: 0 5px; /* this is the ultimate fix */
+    border-color: white;
+    border-top: solid gray 1px;
+    margin-left: 2px;
+}
+th {
+    background-color: #3399FF;
 }
