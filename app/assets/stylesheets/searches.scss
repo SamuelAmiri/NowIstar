@@ -3,15 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 TH {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 	border-radius: 5px;
 	text-align: center;
 	padding: 5px;
-	background-color: #3399FF;
+	font-size: 14px;
 }
-
 TD {
-
+    border-radius: 5px;
 }
+
 .searchrow {
     border-radius: 5px;
     font-family: 'Lato', sans-serif;

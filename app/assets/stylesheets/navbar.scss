@@ -1,0 +1,32 @@
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid rgba(200, 200, 200, 0.9);
+    
+}
+
+.navbar .nav > li {
+    display: inline-block;
+    float: right;
+}
+
+
+.navbar .nav > li > a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-color: #48515e;
+
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #f60;
+}
+
+.logo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    float: left;
+    padding: 15px;
+    display: inline-block;
+}
