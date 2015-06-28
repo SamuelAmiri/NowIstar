@@ -21,7 +21,7 @@
 <nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
     <div class="col-md-1"></div>
     <ul class="nav navbar-nav col-md-10">  
-    <div class="logo">NOW I STAR</div>
+    <div class="logo"><a href="/">NOW I STAR</a></div>
         <% if current_user %>
         <li><a href="/auth/logout">LOGOUT</a></li>
         <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
@@ -46,5 +46,8 @@
 
 <%= yield %>
 
+<footer class="col-md-12"><p>Copyright © 2015 Saandro Labs. All rights reserved.</p></footer>
+
 </body>
+
 </html>
