@@ -1,5 +1,16 @@
 .googlemap {
 	position: fixed;
+	border: 2px solid #48515e;
+	right: 0;
+
+}
+
+#googleMap {
+    width: 100%;
+    height: 50vw;
+    margin-bottom: 15px;
+    margin-right: 0px;
+    padding: 0px;
 }
 body {
 	margin-top: 52px;
