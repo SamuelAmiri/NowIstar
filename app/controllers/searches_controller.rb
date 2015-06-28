@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
 	helper_method :sort_column, :sort_direction
 
 	def search
-		@skills = Skill.order(sort_column + ' ' + sort_direction).page(params[:page]).per_page(10)
+		@skills = Skill.order(sort_column + ' ' + sort_direction).page(params[:page]).per_page(5)
 	## :type refers to the param in a hidden text input field in the search partial.
 	## :id refers to the param in a hidden text input field in the search partial.
 	## :location refers to the input in the text field in the search partial.
