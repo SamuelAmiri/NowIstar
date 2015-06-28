@@ -28,43 +28,6 @@ body {
 
 }
 
-.navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: 2px solid rgba(200, 200, 200, 0.9);
-    
-}
-
-
-.navbar .nav > li {
-    display: inline-block;
-    float: right;
-}
-
-
-.navbar .nav > li > a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    text-color: #48515e;
-
-}
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #f60;
-}
-
-.navbar-inverse {
-  background-color: white;
-  border-color: white;
-}
-
-.logo {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-    float: left;
-    padding: 15px;
-    display: inline-block;
-}
 .thesearch {  height:auto; 
     margin:0 auto; 
     width:60%; 
@@ -160,11 +123,9 @@ div.transbox p {
 a {
     color: #FF0099; 
 }
-a:visited {
-    color: #f60;
-}
+
 a:hover {
-    color: #FF0099;
+    color: #f60;
 }
 
 
@@ -183,16 +144,12 @@ h2 {    font-size: 50px;
 a.skillsbtn {
     color: #3399FF;
 }
-a.skillsbtn:hover {
-    color: white;
-}
+
 h3 {
     color: white;
     background-color: lightgrey;
 }
-td {
-    border-radius: 5px;
-}
+
 .profpic {
     width: 250px;
     height: 250px;
