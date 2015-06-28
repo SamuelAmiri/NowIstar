@@ -10,6 +10,17 @@ TH {
 	padding: 5px;
 	font-size: 14px;
 }
+
+TH:hover {
+    color: #f60;
+    cursor: default;
+}
+
+TH a:hover {
+    color: #f60;
+    cursor: default;
+}
+
 TD {
     border-radius: 5px;
 }
