@@ -3,25 +3,54 @@
 		<thead>
 			<tr>
 				<th class="col-md-1 table1"><%= sortable "user", "User" %></th>
-				<th class="col-md-3 table1"><%= sortable "title", "Service" %></th>
+				<th class="col-md-4 table1"><%= sortable "title", "Service" %></th>
 				<th class="col-md-1 table1"><%= sortable "subcategory_id", "Subcategory" %></th>
 				<th class="col-md-1 table1"><%= sortable "price", "Price" %></th>
 				<th class="col-md-1 table1"><%= sortable "zipcode", "Zipcode" %></th>
+				<th class="col-md-1 table1">Book</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @skills.each do |skill| %> 
 				<tr>
-					<td class="searchrow"><%=skill.user.fname %><br>
-					<%= image_tag skill.user.image %>
+					<td class="searchrow col-md-1">
+						<a href= <%=user_path(skill.user)%>>
+								<strong><%=skill.user.fname %></strong><br>
+								<%= image_tag skill.user.image %>
+						</a>
 					</td>
-					<td class="searchrow"><strong><%=skill.title %></strong><br>
-					<%= skill.description %>
+
+					<td class="searchrow col-md-4">
+						<a href= <%=user_skill_path(skill.user, skill.id)%>>
+								<strong><%=skill.title %></strong><br>
+								<%= skill.description %>
+						</a>
 					</td>
-					<td class="searchrow"><%=skill.subcategory.name %></td>
-					<td class="searchrow"><%= number_to_currency(skill.price) %></td>
-					<td class="searchrow"><%=skill.zipcode %></td>
-					<td class="searchrow"><%=link_to('See this Ad', user_skill_path(skill.user, skill.id))%></td>
+
+					<td class="searchrow col-md-1">
+						<a href= <%=user_skill_path(skill.user, skill.id)%>>
+								<%=skill.subcategory.name %>
+						</a>
+					</td>
+
+					<td class="searchrow col-md-1">
+						<a href= <%=user_skill_path(skill.user, skill.id)%>>
+								<%= number_to_currency(skill.price) %>
+						</a>
+					</td>
+
+					<td class="searchrow col-md-1">
+						<a href= <%=user_skill_path(skill.user, skill.id)%>>
+							<%=skill.zipcode %>
+						</a>
+					</td>
+
+					<td class="searchrow col-md-1">
+						<a class="btn btn-default" href= <%=user_skill_path(skill.user, skill.id)%> role="button">
+							Book Now
+						</a>
+					</td>
+
 				</tr>
 			<% end %>
 		</tbody>
