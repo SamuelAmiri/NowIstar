@@ -17,13 +17,13 @@ class SearchesController < ApplicationController
       		skills = Skill.where(subcategory_id: params[:id])
       		location = (params[:location])
       		@skills = skills.near(location, 40)
-      		@skills
+      		@skills.page(params[:page]).per_page(5)
 
     ## Due to skills not being directed associated to categories, an empty array is
     ## created and is shoveled skills that are filtered. temp_skills.nil? prevents
     ## lack of results from erroring out.
     	elsif params[:type] == "category"
-			@subcategories = Subcategory.where(category_id: params[:id])
+			@subcategories = Subcategory.where(category_id: params[:id]).page(params[:page]).per_page(5)
 			@skills = []
 			@subcategories.each do |subcategory|
 				location = (params[:location])
