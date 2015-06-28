@@ -7,10 +7,12 @@
   <script src ="http://jawj.github.io/OverlappingMarkerSpiderfier/bin/oms.min.js"</script>
   <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js" type="text/javascript"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Pacifico">
   <script src="https://js.stripe.com/v2/"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+
+
   <%= csrf_meta_tags %>
   <%= tag :meta, :name => "stripe-key", :content => "pk_test_6pRNASCoBOKtIshFeQd4XMUh" %>
 </head>
@@ -19,7 +21,7 @@
 <nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
     <div class="col-md-1"></div>
     <ul class="nav navbar-nav col-md-10">  
-    <div class="logo"><a href="/">Now i Star</a></div>
+    <div class="logo">NOW I STAR</div>
         <% if current_user %>
         <li><a href="/auth/logout">LOGOUT</a></li>
         <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>

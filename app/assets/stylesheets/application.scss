@@ -53,9 +53,11 @@ body {
 }
 
 .logo {
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
     float: left;
+    padding: 15px;
     display: inline-block;
 }
 .thesearch {  height:auto; 
@@ -170,7 +172,7 @@ a {
     color: #FF0099; 
 }
 a:visited {
-    color: #FFFF00;
+    color: #f60;
 }
 a:hover {
     color: #FF0099;
