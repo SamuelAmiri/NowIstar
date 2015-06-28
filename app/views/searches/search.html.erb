@@ -1,9 +1,9 @@
-<div class="col-md-9 skillattributes">
+<div class="col-md-8">
 	<table class="table table-bordered table-hover spacing-table">
 		<thead>
 			<tr>
 				<th class="col-md-1 table1"><%= sortable "user", "User" %></th>
-				<th class="col-md-4 table1"><%= sortable "title", "Service" %></th>
+				<th class="col-md-3 table1"><%= sortable "title", "Service" %></th>
 				<th class="col-md-1 table1"><%= sortable "subcategory_id", "Subcategory" %></th>
 				<th class="col-md-1 table1"><%= sortable "price", "Price" %></th>
 				<th class="col-md-1 table1"><%= sortable "zipcode", "Zipcode" %></th>
@@ -15,7 +15,7 @@
 					<td class="searchrow"><%=skill.user.fname %><br>
 					<%= image_tag skill.user.image %>
 					</td>
-					<td class="searchrow"><%=skill.title %><br>
+					<td class="searchrow"><strong><%=skill.title %></strong><br>
 					<%= skill.description %>
 					</td>
 					<td class="searchrow"><%=skill.subcategory.name %></td>
@@ -28,6 +28,6 @@
 </div>
 
 
-<div class="col-md-3 googlemap">
+<div class="col-md-4 googlemap">
 	<div id="googleMap"></div>
 </div>
