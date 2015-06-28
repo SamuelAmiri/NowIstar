@@ -21,10 +21,12 @@
 					<td class="searchrow"><%=skill.subcategory.name %></td>
 					<td class="searchrow"><%= number_to_currency(skill.price) %></td>
 					<td class="searchrow"><%=skill.zipcode %></td>
+					<td class="searchrow"><%=link_to('See this Ad', user_skill_path(skill.user, skill.id))%></td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
+	<%= will_paginate @skills%>
 </div>
 
 <div class="col-md-4 googlemap">
