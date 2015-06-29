@@ -1,1 +1,64 @@
-<h1> test </h1>
+<div class="row  margin-top-20"> <!-- open main row -->
+    <div class="col-xs-12 col-sm-8 col-md-8"> <!-- right side of page -->
+        <div class="row">
+            <div class="col-sm-3 col-lg-2 profpic">
+                    <%= image_tag(@user.image, size: "275x275", class: "img-responsive img-square") %><br>
+            </div> <!-- close left side of left side -->
+            <div class="col-xs-12 col-sm-5 col-lg-10">
+                <div id="profile-style">
+                    <h2>Hey, I'm<%= " #{@user.fname}" %>!</h2>
+
+                        <div id="bio">
+                            <h3>Learn about me!</h3><%= @user.bio %>
+                        </div>
+                        <br>
+                        <div>
+                            <% if current_user == @user %>
+                            <%= link_to "Purchase History", purchases_path(@user), :class => "skillsbtn" %></li><br>
+                            <%= link_to "Post a new skill", new_user_skill_path(@user), :class => "skillsbtn" %><br>
+                            <% end %>
+                        </div><br><br><br>
+
+
+                    <div class="col-md-12 profileskills">
+                        <table class="table table-bordered table-hover spacing-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-3">Service</th>
+                                    <th class="col-md-1">Subcategory</th>
+                                    <th class="col-md-1">Price</th>
+                                    <th class="col-md-5">Description</th>
+                                    <% if current_user == @user %>
+                                    <th class="col-md-3">Location</th>
+                                    <% end %>
+                                    <br>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @skills.each do |skill| %> 
+                                    <tr>
+                                        <td><%=skill.title %></td>
+                                        <td><%=skill.subcategory.name %></td>
+                                        <td><%=skill.price %></td>
+                                        <td><%=skill.description %></td>
+                                        <% if current_user == @user %>
+                                        <td><%=skill.full_address %></td>
+                                        <td><%= link_to "Edit", edit_user_skill_path(@user, skill), class:"btn btn-info" %></td>
+                                        <td><%= link_to 'Delete', user_skill_path(@user, skill),
+                                                  method: :delete,
+                                                  data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %><br><hr></td>
+                                        <% else %>
+                                        <td><%=link_to('See this Skill', user_skill_path(skill.user, skill.id))%></td>
+                                        <% end %>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                        <%= will_paginate @skills%>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

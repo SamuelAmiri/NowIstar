@@ -40,7 +40,7 @@
                                 <% @skills.each do |skill| %> 
                                     <tr>
                                         <td><%=skill.title %></td>
-                                        <td><%=skill.subcategory_id %></td>
+                                        <td><%=skill.subcategory.name %></td>
                                         <td><%=skill.price %></td>
                                         <td><%=skill.description %></td>
                                         <% if current_user == @user %>
@@ -50,7 +50,7 @@
                                                   method: :delete,
                                                   data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %><br><hr></td>
                                         <% else %>
-                                        <td><%=link_to('See this Ad', user_skill_path(skill.user, skill.id))%></td>
+                                        <td><%=link_to('See this Skill', user_skill_path(skill.user, skill.id))%></td>
                                         <% end %>
                                     </tr>
                                 <% end %>
