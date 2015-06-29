@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   root 'statics#home'
 
+  get 'statics/about' => "statics#about"
+
   resources :users do
     resources :skills, except: :index do
      resources :charges, only: [:new, :create]
@@ -33,7 +35,6 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :subcategories
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
