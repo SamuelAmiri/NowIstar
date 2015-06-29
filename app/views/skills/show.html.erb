@@ -1,29 +1,39 @@
-<div class="col-md-9 skillattributes">
+<div class="col-md-8 skillattributes">
 	<table class="table table-bordered table-hover spacing-table">
-		<thead>
-			<tr>
-				<th class="col-md-2">Servicer</th>
-				<th class="col-md-3">Service</th>
-				<th class="col-md-5">Description</th>
-				<th class="col-md-1">Price</th>
-				<th class="col-md-1">Contact Information</th>
-				<% if current_user %>
-				<th class="col-md-1">Hire Now</th>
-				<% end %>
-			</tr>
-		</thead>
 	<tr>
-		<td class="searchrow"><%=@skill.user.fname %></td>
-		<td class="searchrow"><%=@skill.title %></td>
-		<td class="searchrow"><%=@skill.description %></td>
-		<td class="searchrow"><%=@skill.price.round(2) %></td>
+		<td class="searchrow">
+			<%= image_tag(@skill.user.image, size: "75x75", class: "img-circle") %><br>
+			<%=@skill.user.fname %>
+		</td>
+		<td class="searchrow skillshowtitle">
+		<h4><%=@skill.title %></h4>	
 		<% if current_user %>
-			<td><%= @skill.user.phonenumber%></td>
-			<td><%= link_to "Buy It Now", new_user_skill_charge_path(@user, @skill), class: "btn btn-primary", data: { no_turbolink: true } %>
+			<%=@skill.address %><br>
+		<% end %>
+		<%= @skill.city %>, <%=@skill.state %><br>
+		</td>
+		<td class="searchrow skillshowprice"><br><%=number_to_currency(@skill.price) %></td>
+		<% if current_user %>
+			<td class="searchrow"><%= link_to "Buy It Now", new_user_skill_charge_path(@user, @skill), class: "btn btn-primary", data: { no_turbolink: true } %><br>
+				<%= link_to "Call", tel:@skill.user.phonenumber %><br>
+				<%= mail_to @skill.user.email,"Email" %>
 		<% else %>
 			<td><a href="/auth/linkedin">Please log in to contact this user</a></td>
 		<% end %>
-
-
 	</tr>
+</td>
+</tr>
+</table>
+	<div class="aboutskill">
+	<strong>About This Listing</strong><br>
+	<%=@skill.description %><br>
+	</div>
+</div>
+
+
+
+<div class="col-md-4 googlemap">
+	<div id="googleMap">
+	</div>
+</div>
 
