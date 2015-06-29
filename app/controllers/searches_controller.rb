@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
     ## created and is shoveled skills that are filtered. temp_skills.nil? prevents
     ## lack of results from erroring out.
     	elsif params[:type] == "category"
-			@subcategories = Subcategory.where(category_id: params[:id]).page(params[:page]).per_page(5)
+			@subcategories = Subcategory.where(category_id: params[:id])
 			@skills = []
 			@subcategories.each do |subcategory|
 				location = (params[:location])

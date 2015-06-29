@@ -19,13 +19,13 @@ Rails.application.routes.draw do
      end
   end
   
+  get 'users/:user_id/seller_reviews' => 'seller_reviews#show', as: "seller_reviews"
+
   get 'skills' => "skills#index" 
   
   namespace :api do
      resources :skills, only: [:index, :show] 
   end
-
-  
 
   get 'users/:id/sales' => "charges#sales", as: "sales"
   get 'users/:id/purchases' => "charges#purchases", as: "purchases"
