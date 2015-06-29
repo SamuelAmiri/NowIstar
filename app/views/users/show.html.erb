@@ -1,5 +1,4 @@
-
-    <% if current_user.servicer == true %>
+    <% if @user.servicer == true %>
         <%= render 'servicer' %>
     <% else %>
         <%= render 'client' %>

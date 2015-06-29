@@ -15,7 +15,7 @@
                         <div>
                             <% if current_user == @user %>
                             <%= link_to "Purchase History", purchases_path(@user), :class => "skillsbtn" %></li><br>
-                            <%= link_to "Post a new skill", new_user_skill_path(@user), :class => "skillsbtn" %><br>
+                            <%= link_to "Show all skills",skills_path, :class => "skillsbtn" %><br>
                             <% end %>
                         </div><br><br><br>
 
