@@ -7,16 +7,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <div class="col-md-1"></div>
         <div class="logo"><a href="/">NOW I STAR</a></div>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a href="/statics/about">HOW IT WORKS</a></li>
       <li><a href="/statics/contact">CONTACT US</a></li>
+      <li><a href="/statics/about">HOW IT WORKS</a></li>
+      
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transaction History <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -42,12 +46,11 @@
           </ul>
         </li>
         
+        
         <% else %>
         
         <li><a href="/auth/facebook">LOGIN VIA FACEBOOK</a></li>
         <li><a href="/auth/linkedin">LOGIN VIA LINKEDIN</a></li>
-        
         <% end %>       
     </ul>
-    <div class="col-md-1"></div>
 </nav>
