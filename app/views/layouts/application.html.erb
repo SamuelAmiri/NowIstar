@@ -9,31 +9,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://js.stripe.com/v2/"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-
-
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <%= tag :meta, :name => "stripe-key", :content => "pk_test_6pRNASCoBOKtIshFeQd4XMUh" %>
 </head>
 <body>
 
-    <nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
-        <div class="col-md-1"></div>
-        <ul class="nav navbar-nav col-md-10">  
-        <div class="logo"><a href="/">NOW I STAR</a></div>
-            <% if current_user %>
-            <li><a href="/auth/logout">LOGOUT</a></li>
-            <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
-            <li><a href="/users/<%= current_user.id %>">MY ACCOUNT</a></li>
-            <li><a href="/statics/about<%= current_user.id %>/edit">HOW IT WORKS</a></li>
-            <% else %>
-            <li><a href="/auth/facebook">LOGIN VIA FACEBOOK</a></li>
-            <li><a href="/auth/linkedin">LOGIN VIA LINKEDIN</a></li>
-            <% end %>       
-        </ul>
-        <div class="col-md-1"></div>
-    </nav>
+<%= render 'layouts/header' %>
 
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
