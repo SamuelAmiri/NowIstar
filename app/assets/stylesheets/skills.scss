@@ -2,3 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.skillshowtitle {
+	text-align: left;
+	h4 {
+		color: black;
+		font-weight: 400;
+	}
+}
+
+.skillshowprice {
+   font-family: 'Latos', sans-serif;
+   font-weight: 400;
+   text-align: center;
+   font-size: 25px;
+   vertical-align: center;
+   padding: 5px;
+}

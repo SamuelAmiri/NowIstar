@@ -130,7 +130,7 @@ users = User.create([
 	
 
 skills = Skill.create([
-	{user_id: 1 , subcategory_id: 4, price: 40.00, description: "" , image: "" , title: "One on One Photography Lessons" , address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, longitude: -118.495200 },
+	{user_id: 1 , subcategory_id: 4, price: 40.00, description: "Nam minimum interpretaris no, audiam sanctus fabulas sed te, pri in volutpat sapientem. Te debet veniam nostrum mel, at eripuit eruditi vis. Ei nonumes ceteros erroribus nec, alienum consectetuer eam in, nostrud percipit consequat pro cu. Assentior intellegat cum no, ne virtute conceptam mel, mazim maluisset sea eu. Dico viderer sea cu. Volutpat assueverit definitionem ei ius." , image: "" , title: "One on One Photography Lessons" , address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012934, longitude: -118.495200 },
 	{user_id: 1 , subcategory_id: 4, price: 50.00, description: "" , image: "" , title: "Small Group Landscape Photography Lessons" ,address: "1520 2nd Street" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012924, longitude: -118.495200 },
 	{user_id: 1 , subcategory_id: 4, price: 30.00, description: "" , image: "" , title: "Group Lessons at City Hall", address: "1685 Main St" , city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.011657 , longitude: -118.491674 },
 	{user_id: 1 , subcategory_id: 4, price: 60.00, description: "" , image: "" , title: "Studio Headshots for Professional, Actors, Models, etc.", address: "200 Santa Monica Pier", city: "Santa Monica" , zipcode: "90401" , state: "CA" , latitude: 34.012935, longitude: -118.495200 },
@@ -142,6 +142,8 @@ skills = Skill.create([
         fname: Faker::Name.first_name,
         lname: Faker::Name.last_name,
         email: Faker::Internet.email,
+        phonenumber: Faker::Number.number(9),
+        image: Faker::Avatar.image("my-own-slug", "50x50", "bmp"),
         servicer: true,
         provider: "facebook",
         uid: Faker::Number.number(17)
