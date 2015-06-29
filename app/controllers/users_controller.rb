@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       if @user.id == current_user.id
         @user.destroy
       end
-    redirect_to users_path
+    redirect_to root_path
   end
 
 
