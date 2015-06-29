@@ -8,5 +8,6 @@ class StaticsController < ApplicationController
   end
 
   def contact
+  @categories = Category.all
   end
 end

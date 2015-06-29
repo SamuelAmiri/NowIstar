@@ -9,7 +9,6 @@ class SellerReviewsController < ApplicationController
   end
 
   def show
-    @orders = Orders.where(user_id: == current_user.id)
     @seller_reviews = @orders.buyer_reviews
   end
 

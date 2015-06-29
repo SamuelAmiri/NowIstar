@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'statics#home'
 
   get 'statics/about' => "statics#about"
+  get 'statics/contact' => "statics#contact"
 
   resources :users do
     resources :skills, except: :index do
