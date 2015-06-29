@@ -18,19 +18,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+HTML {
+    position: relative;
+    min-height: 100%;
+}
 
 BODY {
     background-color: white;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    margin-top: 50px;
+    margin-top: 10vh;
+}
 
-}
-FOOTER {
-    text-align: center;
-    bottom: 0;
-}
+
 
 .thesearch {  height:auto; 
     margin:0 auto; 
@@ -50,78 +50,9 @@ FOOTER {
     margin-left: -100px;
     margin-right: -100px;
 }
-.pushdown {
-	height: 5vw;
-}
+
 .col {
     border: 1px solid black;
-}
-.will-hide, .will-hide2 {
-    display: none;
-}
-div.transbox {
-    margin: 50px;
-    background-color: #ffffff;
-    border: 1px solid black;
-    opacity:0.8;
-    filter:alpha(opacity=60); /* For IE8 and earlier */
-}
-div.transbox p {
-    margin: 10px;
-    color: #000000;
-}
-
-.dropdown-submenu {
-    position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -6px;
-    margin-left: -1px;
-    -webkit-border-radius: 0 6px 6px 6px;
-    -moz-border-radius: 0 6px 6px;
-    border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-    display: block;
-}
-
-.dropdown-submenu>a:after {
-    display: block;
-    content: " ";
-    float: right;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    border-left-color: #ccc;
-    margin-top: 5px;
-    margin-right: -10px;
-}
-
-.dropdown-submenu:hover>a:after {
-    border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
-    float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-    left: -100%;
-    margin-left: 10px;
-    -webkit-border-radius: 6px 0 6px 6px;
-    -moz-border-radius: 6px 0 6px 6px;
-    border-radius: 6px 0 6px 6px;
-}
-.btn-primary {
-    background-color: #3399FF;
-}
-.btn-primary:hover {
-    background-color: #5B5B5B;
 }
 
 h2 {    font-size: 50px;
@@ -140,11 +71,6 @@ a.skillsbtn {
     color: #3399FF;
 }
 
-h3 {
-    color: white;
-    background-color: lightgrey;
-}
-
 .profpic {
     width: 250px;
     height: 250px;
@@ -154,7 +80,7 @@ h3 {
     text-align: center;
 }
 .formfield {
-    border-radius: 5px;
+    border-radius: 3px;
 }
 .formtext {
     font-size: 25px; 

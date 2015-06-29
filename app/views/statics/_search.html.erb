@@ -1,33 +1,36 @@
-<%= form_tag new_search_path, method: :get do %>
-    <div class="dropdown">
+<div class="searchpartial">
+  <div class="col-md-3">
+  </div>
+  <%= form_tag new_search_path, method: :get do %>
+      <div class="dropdown searchform">
+      	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-3">
+          What are you looking for? <span class="caret"></span>
+      	</a>
 
-    	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-3">
-        What are you looking for? <span class="caret"></span>
-    	</a>
-
-    	<%= text_field_tag :type, nil, placeholder: nil, class: 'will-hide' %>
-    	<%= text_field_tag :id, nil, placeholder: nil, class: 'will-hide2' %>
-			<ul class="dropdown-menu multi-level col-md-3" role="menu" aria-labelledby="dropdownMenu">
-			
-				<% @categories.each do |category| %>
-      			<li class="dropdown-submenu">
-      				<a class="category" tabindex="-1" type="category" value=<%= category.id  %> ><%= category.name %></a>
-     				  <ul class="dropdown-menu col-md-12">
-     				  	<% category.subcategories.each do |subcategory| %>	
-          					<li><a class="subcategory" tabindex="-1" type="subcategory" value=<%= subcategory.id %> ><%= subcategory.name %></a></li>  				
-            		<% end %>
-            	</ul>
-            </li>
-       	<% end %> 
-       </ul>
-    
-    			
-		</div>
-		<div class ="col-md-2">
-			<%= text_field_tag :location, nil, placeholder: 'Where?',class: 'form-control' %>
-		</div>
-		<div class ="col-md-2">
-			<%= submit_tag "Search",class: 'form-control btn-warning' %>
-		</div>
-	<% end %>
+      	<%= text_field_tag :type, nil, placeholder: nil, class: 'will-hide' %>
+      	<%= text_field_tag :id, nil, placeholder: nil, class: 'will-hide2' %>
+  			<ul class="dropdown-menu multi-level col-md-3" role="menu" aria-labelledby="dropdownMenu">
+  			
+  				<% @categories.each do |category| %>
+        			<li class="dropdown-submenu">
+        				<a class="category" tabindex="-1" type="category" value=<%= category.id  %> ><%= category.name %></a>
+       				  <ul class="dropdown-menu">
+       				  	<% category.subcategories.each do |subcategory| %>	
+            					<li><a class="subcategory" tabindex="-1" type="subcategory" value=<%= subcategory.id %> ><%= subcategory.name %></a></li>  				
+              		<% end %>
+              	</ul>
+              </li>
+         	<% end %> 
+         </ul>
+      
+      			
+  		</div>
+  		<div class ="col-md-2 searchform">
+  			<%= text_field_tag :location, nil, placeholder: 'Where?',class: 'form-control' %>
+  		</div>
+  		<div class ="col-md-2 searchform">
+  			<%= submit_tag "Search",class: 'form-control btn-warning' %>
+  		</div>
+  	<% end %>
+  </div>
 

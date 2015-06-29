@@ -4,6 +4,7 @@ class StaticsController < ApplicationController
   end
 
   def about
+  @categories = Category.all
   end
 
   def contact

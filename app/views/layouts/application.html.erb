@@ -18,35 +18,34 @@
 </head>
 <body>
 
-<nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
-    <div class="col-md-1"></div>
-    <ul class="nav navbar-nav col-md-10">  
-    <div class="logo"><a href="/">NOW I STAR</a></div>
-        <% if current_user %>
-        <li><a href="/auth/logout">LOGOUT</a></li>
-        <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
-        <li><a href="/users/<%= current_user.id %>">MY ACCOUNT</a></li>
-        <li><a href="/statics/about<%= current_user.id %>/edit">HOW IT WORKS</a></li>
-        <% else %>
-        <li><a href="/auth/facebook">LOGIN VIA FACEBOOK</a></li>
-        <li><a href="/auth/linkedin">LOGIN VIA LINKEDIN</a></li>
-        <% end %>       
-    </ul>
-    <div class="col-md-1"></div>
-</nav>
+    <nav class="navbar navbar-fixed-top navbar-default" id="navbar-contain">
+        <div class="col-md-1"></div>
+        <ul class="nav navbar-nav col-md-10">  
+        <div class="logo"><a href="/">NOW I STAR</a></div>
+            <% if current_user %>
+            <li><a href="/auth/logout">LOGOUT</a></li>
+            <li><a href="/users/<%= current_user.id %>/edit">EDIT PROFILE</a></li>
+            <li><a href="/users/<%= current_user.id %>">MY ACCOUNT</a></li>
+            <li><a href="/statics/about<%= current_user.id %>/edit">HOW IT WORKS</a></li>
+            <% else %>
+            <li><a href="/auth/facebook">LOGIN VIA FACEBOOK</a></li>
+            <li><a href="/auth/linkedin">LOGIN VIA LINKEDIN</a></li>
+            <% end %>       
+        </ul>
+        <div class="col-md-1"></div>
+    </nav>
 
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-      <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      </div>
-    <% end %>
-  <% end %>
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          </div>
+        <% end %>
+      <% end %>
 
-<%= yield %>
 
-<footer class="col-md-12"><p>Copyright © 2015 Saandro Labs. All rights reserved.</p></footer>
+    <%= yield %>
 
 </body>
 
