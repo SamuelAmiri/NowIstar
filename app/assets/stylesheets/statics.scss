@@ -1,7 +1,8 @@
 .image { 
    position: relative; 
    width: 100%;
-   height: 80vw;
+   height: 50vw;
+   overflow: hidden;
 }
 
 .caption h4 { 
@@ -31,11 +32,14 @@
     height: 15vh;
     vertical-align: center;
     margin: 0 auto;
+    position: absolute;
+    top: 45vw;
 }
 
 .searchpartial {
 	margin: 0 auto;
 	position: relative;
+  padding: 2vw;
 
 }
 
@@ -102,7 +106,13 @@ div.transbox p {
     -moz-border-radius: 3px 0 3px 3px;
     border-radius: 3px 0 3px 3px;
 }
+
+.btn {
+  border-radius: 2px;
+}
+
 .btn-primary {
+    background-color: white;
     color: #aaa;
     border-radius: 2px;
 }
