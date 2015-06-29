@@ -7,12 +7,12 @@
 
 .caption h4 { 
    position: absolute; 
-   top: 20vw; 
+   top: 18vw; 
    left: 0; 
    width: 100%;
    color: white;
    font-family: 'Lato', sans-serif;
-   font-weight: 300;
+   font-weight: 400;
    text-align: center;
 }
 
@@ -61,8 +61,8 @@ div.transbox p {
 
 .dropdown-menu {
     margin-left: 24vw;
-
 }
+
 
 .dropdown-submenu>.dropdown-menu {
     top: 0;
@@ -101,14 +101,16 @@ div.transbox p {
 
 .dropdown-submenu.pull-left>.dropdown-menu {
     left: -100%;
-    margin-left: 10px;
-    -webkit-border-radius: 3px 0 3px 3px;
-    -moz-border-radius: 3px 0 3px 3px;
-    border-radius: 3px 0 3px 3px;
+    margin-left: 8px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
 }
 
 .btn {
   border-radius: 2px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 .btn-primary {
@@ -122,6 +124,19 @@ div.transbox p {
 }
 
 .form-control {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 	border-radius: 2px;
+
 }
 
+.btn-warning {
+  background-color: #FF9766;
+}
+.btn-warning:hover {
+  background-color: #EC7D48;
+
+}
+.subcategory {
+  background-color: white;
+}
