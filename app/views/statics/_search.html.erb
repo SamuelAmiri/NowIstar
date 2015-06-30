@@ -6,11 +6,9 @@
       	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary col-md-3">
           What are you looking for? <span class="caret"></span>
       	</a>
-
       	<%= text_field_tag :type, nil, placeholder: nil, class: 'will-hide' %>
       	<%= text_field_tag :id, nil, placeholder: nil, class: 'will-hide2' %>
   			<ul class="dropdown-menu multi-level col-md-3" role="menu" aria-labelledby="dropdownMenu">
-  			
   				<% @categories.each do |category| %>
         			<li class="dropdown-submenu">
         				<a class="category" tabindex="-1" type="category" value=<%= category.id  %> ><%= category.name %></a>
@@ -21,9 +19,7 @@
               	</ul>
               </li>
          	<% end %> 
-         </ul>
-      
-      			
+         </ul>			
   		</div>
   		<div class ="col-md-2 searchform">
   			<%= text_field_tag :location, nil, placeholder: 'Where?',class: 'form-control' %>
