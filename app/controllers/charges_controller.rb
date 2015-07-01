@@ -40,12 +40,15 @@ class ChargesController < ApplicationController
 	      	flash[:danger] = e.message
 	    end
 
+	    begin
 	    transfer = Stripe::Transfer.create(
 	      	:amount => (@skill.price * 95).floor,
 		    :currency => "usd",
 		  	:recipient => @seller.servicer
 	      	)
-
+	    rescue Stripe::CardError => e
+	      	flash[:danger] = e.message
+		end
 	    respond_to do |format|
 	      if @order.save
 	        format.html { redirect_to user_path(current_user), notice: "Thanks for ordering!" }
