@@ -1,23 +1,21 @@
 <div class="row  margin-top-20"> <!-- open main row -->
-    <div class="col-xs-12 col-sm-8 col-md-8"> <!-- right side of page -->
+    <div class="col-xs-12 col-sm-8 col-md-12"> <!-- right side of page -->
         <div class="row">
-            <div class="col-sm-3 col-lg-2 profpic">
+            <div class="col-sm-3 col-md-12 col-lg-2 profpic">
                     <%= image_tag(@user.image, size: "275x275", class: "img-responsive img-square") %><br>
+                    <div class="clearfix"> </div>
             </div> <!-- close left side of left side -->
-            <div class="col-xs-12 col-sm-5 col-lg-10">
+            <div class="col-xs-12 col-sm-5 col-md-12 col-lg-12">
                 <div id="profile-style">
-                    <h2>Hey, I'm<%= " #{@user.fname}" %>!</h2>
+                    <h2>Hey,<%= " #{@user.fname}" %>!</h2>
 
-                        <div id="bio">
-                            <h3>Learn about me!</h3><%= @user.bio %>
-                        </div>
                         <br>
                         <div>
                             <% if current_user == @user %>
                             <%= link_to "Purchase History", purchases_path(@user), :class => "skillsbtn" %></li><br>
-                            <%= link_to "Show all skills",skills_path, :class => "skillsbtn" %><br>
+                            <%= link_to "See all skills on the market",skills_path, :class => "skillsbtn" %><br>
                             <% end %>
-                        </div><br><br><br>
+                        </div><br><br><br>  
 
 
                     <div class="col-md-12 profileskills">

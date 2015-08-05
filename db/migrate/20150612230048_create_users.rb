@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.boolean :servicer
-      t.integer :phonenumber
+      t.string :phonenumber
       t.string :street_address
       t.string :city
       t.integer :zipcode

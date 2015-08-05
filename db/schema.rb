@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20150626220534) do
     t.string   "email"
     t.string   "password_digest"
     t.boolean  "servicer"
-    t.integer  "phonenumber"
+    t.string   "phonenumber"
     t.text     "bio"
     t.string   "provider",           null: false
     t.string   "uid",                null: false

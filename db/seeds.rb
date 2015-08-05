@@ -150,8 +150,6 @@ skills = Skill.create([
     )
 end
 
-
-
 addresses = [
 ['602 Santa Monica Blvd', 'Santa Monica', 'CA', '90401'],
 ['1517 Lincoln Blvd', 'Santa Monica', 'CA', '90401'],
